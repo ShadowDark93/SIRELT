@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes,
   System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  FMX.Controls.Presentation, FMX.Edit, FMX.Layouts, FMX.ExtCtrls, FMX.StdCtrls;
+  FMX.Controls.Presentation, FMX.Edit, FMX.Layouts, FMX.ExtCtrls, FMX.StdCtrls,
+  FMX.Objects;
 
 type
   TfrmLoggin = class(TForm)
@@ -16,6 +17,8 @@ type
     Button1: TButton;
     Label1: TLabel;
     StyleBook1: TStyleBook;
+    Image1: TImage;
+    Image2: TImage;
     procedure Button1Click(Sender: TObject);
   private
     { Private declarations }

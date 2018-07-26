@@ -35,9 +35,6 @@ Coordinates=136,166,95,51
 [Label6]
 Coordinates=496,10,46,51
 
-[ImageViewer1]
-Coordinates=146,234,83,51
-
 [INGRESO]
 Coordinates=442,234,61,33
 
@@ -64,7 +61,7 @@ Visible=True
 Coordinates=340,234,78,33
 
 []
-Coordinates=202,344,82,33
+Coordinates=353,376,83,51
 
 [DataModule1.qryLoggin]
 Coordinates=451,80,131,51
@@ -85,20 +82,11 @@ Coordinates=130,1,46,51
 [cmbTipoPersona]
 Coordinates=130,78,97,123
 
-[ImageViewer2]
-Coordinates=353,376,83,51
-
 [Label8]
 Coordinates=291,376,46,51
 
-[txtDuracion]
-Coordinates=850,130,71,51
-
 [txtInicio]
 Coordinates=194,255,53,51
-
-[Label9]
-Coordinates=359,1,46,51
 
 [BindSourceDB1]
 Coordinates=481,286,92,51
