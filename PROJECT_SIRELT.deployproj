@@ -4,31 +4,11 @@
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>
     <PropertyGroup>
-        <DeviceId Condition="'$(Platform)'=='Android'">192.168.137.233:5555</DeviceId>
+        <DeviceId Condition="'$(Platform)'=='Android'">192.168.1.136:5555</DeviceId>
         <DeviceId Condition="'$(Platform)'=='iOSDevice32'"/>
         <DeviceId Condition="'$(Platform)'=='iOSDevice64'"/>
-        <DeviceId Condition="'$(Platform)'=='iOSSimulator'">iPhone5</DeviceId>
+        <DeviceId Condition="'$(Platform)'=='iOSSimulator'"/>
     </PropertyGroup>
-    <ItemGroup Condition="'$(Platform)'=='iOSDevice64'">
-        <DeployFile Include="DB SQLITE\db.db3" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>PROJECT_SIRELT.app\</RemoteDir>
-            <RemoteName>db.db3</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
-        <DeployFile Include="DB SQLITE\db.db3" Condition="'$(Config)'=='Release'">
-            <RemoteDir>PROJECT_SIRELT.app\</RemoteDir>
-            <RemoteName>db.db3</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
-    </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='Win64'">
         <DeployFile Include="$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>PROJECT_SIRELT\Assest\</RemoteDir>
@@ -132,6 +112,26 @@
         <DeployFile Include="$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>PROJECT_SIRELT\Assest\</RemoteDir>
             <RemoteName>delphi_UwpDefault_150.png</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+    </ItemGroup>
+    <ItemGroup Condition="'$(Platform)'=='iOSDevice64'">
+        <DeployFile Include="DB SQLITE\db.db3" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>PROJECT_SIRELT.app\</RemoteDir>
+            <RemoteName>db.db3</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="DB SQLITE\db.db3" Condition="'$(Config)'=='Release'">
+            <RemoteDir>PROJECT_SIRELT.app\</RemoteDir>
+            <RemoteName>db.db3</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
@@ -289,7 +289,6 @@
             <Overwrite>True</Overwrite>
         </DeployFile>
     </ItemGroup>
-    <ItemGroup Condition="'$(Platform)'=='Linux64'"/>
     <ItemGroup Condition="'$(Platform)'=='OSX32'">
         <DeployFile Include="DB SQLITE\db.db3" Condition="'$(Config)'=='Debug'">
             <RemoteDir>PROJECT_SIRELT.app\Contents\Resources\StartUp\</RemoteDir>

@@ -48,19 +48,16 @@ type
     Image4: TImage;
     Label9: TLabel;
     Image5: TImage;
-    Image6: TImage;
-    REPORTES: TTabItem;
-    Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
-    Button5: TButton;
+    exit: TImage;
+    excelExport: TImage;
     procedure Button1Click(Sender: TObject);
     procedure btnSalidaClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Image1Click(Sender: TObject);
     procedure Image4Click(Sender: TObject);
     procedure Image5Click(Sender: TObject);
-    procedure Image6Click(Sender: TObject);
+    procedure exitClick(Sender: TObject);
+    procedure excelExportClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -74,7 +71,7 @@ implementation
 
 {$R *.fmx}
 
-uses dmConexion, u_Loggin;
+uses dmConexion, u_Loggin, u_ExcelExport;
 
 procedure TfrmIndex.Button1Click(Sender: TObject);
 begin
@@ -194,7 +191,14 @@ begin
   end;
 end;
 
-procedure TfrmIndex.Image6Click(Sender: TObject);
+procedure TfrmIndex.excelExportClick(Sender: TObject);
+begin
+  frmexport:=tfrmexport.create(application);
+  frmexport.showmodal;
+
+end;
+
+procedure TfrmIndex.exitClick(Sender: TObject);
 begin
   ShowMessage('Recuerde sacar todas los estudiantes que se encuentren en uso libre');
   Application.Terminate;

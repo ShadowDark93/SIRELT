@@ -52,7 +52,6 @@ object DataModule1: TDataModule1
     Username = 'maquinan_david'
     Server = 'www.maquinandotalentos.com'
     Connected = True
-    LoginPrompt = False
     Left = 128
     Top = 112
     EncryptedPassword = 'CCFFCEFFCDFFCBFFC7FFCCFFCFFFCDFFCDFFC7FF'
