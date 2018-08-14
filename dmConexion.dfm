@@ -41,20 +41,19 @@ object DataModule1: TDataModule1
         'ORA_INICIO` FROM `USO_LIBRE`'
       'WHERE ESTADO = 1'
       'ORDER BY SALA AND `EQUIPO` ASC ')
-    Active = True
     Left = 72
     Top = 144
   end
   object MySQL: TUniConnection
     ProviderName = 'MySQL'
     Port = 3306
-    Database = 'maquinan_magel'
-    Username = 'maquinan_david'
-    Server = 'www.maquinandotalentos.com'
-    Connected = True
+    Database = 'salas'
+    Username = 'salas'
+    Server = '10.42.1.7'
+    LoginPrompt = False
     Left = 128
     Top = 112
-    EncryptedPassword = 'CCFFCEFFCDFFCBFFC7FFCCFFCFFFCDFFCDFFC7FF'
+    EncryptedPassword = '8CFF9EFF93FF9EFF8CFF'
   end
   object MySQLUniProvider1: TMySQLUniProvider
     Left = 128

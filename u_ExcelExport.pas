@@ -163,10 +163,10 @@ begin
 
       Next;
     end;
-
+    {
     ProgressBar1.Min:=0;
     ProgressBar1.max:=qryExportar.RecordCount;
-
+     }
   end;
   Excel.visible := true;
 
