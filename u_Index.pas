@@ -75,48 +75,63 @@ uses dmConexion, u_Loggin, u_ExcelExport;
 
 procedure TfrmIndex.Button1Click(Sender: TObject);
 begin
-  with DataModule1.qryingreso do
-  begin
-    sql.Clear;
-    sql.Add('INSERT INTO USO_LIBRE (`TIPO_PERSONA`,`ID_PERSONA`,`PROGRAMA`,`SALA`,`EQUIPO`)');
-    sql.Add('VALUES (' + QuotedStr(cmbTipoPersona.Selected.Text) + ',' +
-      QuotedStr(txtCodEst.Text) + ',' + QuotedStr(cmbPrograma.Selected.Text) +
-      ',' + QuotedStr(cmbSala.Selected.Text) + ',' +
-      QuotedStr(cmbEquipo.Selected.Text) + ')');
-    ExecSQL;
-    ShowMessage('INGRESO EXITOSO!!!');
-    txtCodEst.Text := '';
-    cmbPrograma.ItemIndex := -1;
-    cmbSala.ItemIndex := -1;
-    cmbEquipo.ItemIndex := -1;
-    cmbTipoPersona.ItemIndex := -1;
+  try
+    with DataModule1.qryingreso do
+    begin
+      sql.Clear;
+      sql.Add('INSERT INTO USO_LIBRE_NVO (TIPO_PERSONA, ID_PERSONA, PROGRAMA, SALA, EQUIPO, FECHA_INICIO, HORA_INICIO)');
+      sql.Add(' VALUES(:TIPO_PERSONA, :ID_PERSONA, :PROGRAMA, :SALA, :EQUIPO, :FECHA_INICIO, :HORA_INICIO)');
+      ParamByName('TIPO_PERSONA').AsString := cmbTipoPersona.Selected.Text;
+      ParamByName('ID_PERSONA').AsString := txtCodEst.Text;
+      ParamByName('PROGRAMA').AsString := cmbPrograma.Selected.Text;
+      ParamByName('SALA').AsString := cmbSala.Selected.Text;
+      ParamByName('EQUIPO').AsString := cmbEquipo.Selected.Text;
+      ParamByName('FECHA_INICIO').AsString := formatdatetime('yyyy-mm-dd', now);
+      ParamByName('HORA_INICIO').AsString := formatdatetime('HH:MM:SS', now);
+
+      ExecSQL;
+      ShowMessage('INGRESO EXITOSO!!!');
+      txtCodEst.Text := '';
+      cmbPrograma.ItemIndex := -1;
+      cmbSala.ItemIndex := -1;
+      cmbEquipo.ItemIndex := -1;
+      cmbTipoPersona.ItemIndex := -1;
+    end;
+  except
+    ShowMessage('Ha ocurrido un error, por favor valide la informacion.');
   end;
 end;
 
 procedure TfrmIndex.FormCreate(Sender: TObject);
 begin
   btnSalida.Enabled := false;
-  TabControl1.ActiveTab:=INGRESO;
+  TabControl1.ActiveTab := INGRESO;
   frmLoggin.hide;
 end;
 
 procedure TfrmIndex.btnSalidaClick(Sender: TObject);
 begin
-  with DataModule1.qrySalida do
-  begin
+  TRY
+    with DataModule1.qrySalida do
     begin
-      sql.Clear;
-      sql.Add('UPDATE USO_LIBRE SET OBSERVACIONES = ' + QuotedStr(Memo1.Text) +
-        ', ESTADO = 0 ' );
-      sql.Add('WHERE ID_PERSONA =' + QuotedStr(txtConsEst.Text) +
-        ' AND ESTADO = 1');
-      ExecSQL;
+      begin
+        open;
+        ParamByName('ID').AsString := txtConsEst.Text;
+        ParamByName('OBSERVACIONES').AsString := Memo1.Text;
+        ParamByName('FECHA_SALIDA').AsString :=
+          formatdatetime('yyyy-mm-dd', now);
+        ParamByName('HORA_SALIDA').AsString := formatdatetime('HH:MM:SS', now);
+        ParamByName('ESTADO').AsString := '0';
+        ExecSQL;
+      end;
+      ShowMessage('SE HA REGISTRADO LA SALIDA CON SATISFACCIÓN!!!');
+      txtConsEst.Text := '';
+      Memo1.Text := '';
+      btnSalida.Enabled := false;
     end;
-    ShowMessage('SE HA REGISTRADO LA SALIDA CON SATISFACCIÓN!!!');
-    txtConsEst.Text := '';
-    Memo1.Text := '';
-    btnSalida.Enabled := false;
-  end;
+  EXCEPT
+    ShowMessage('Ha ocurrido un error, por favor valide de nuevo');
+  END;
 end;
 
 procedure TfrmIndex.Image1Click(Sender: TObject);
@@ -141,20 +156,20 @@ end;
 
 procedure TfrmIndex.Image4Click(Sender: TObject);
 begin
-if txtConsEst.Text = '' then
+  if txtConsEst.Text = '' then
   begin
     ShowMessage('Digite el codigo de estudiante a consultar');
-    Memo1.Enabled:=false;
-    btnSalida.Enabled:=false;
+    Memo1.Enabled := false;
+    btnSalida.Enabled := false;
   end
   else
   begin
-    Memo1.Enabled:=true;
-    btnSalida.Enabled:=true;
+    Memo1.Enabled := true;
+    btnSalida.Enabled := true;
     with DataModule1.qrySalida do
     begin
       sql.Clear;
-      sql.Add('SELECT * FROM USO_LIBRE WHERE `ID_PERSONA` = ' +
+      sql.Add('SELECT * FROM USO_LIBRE_NVO WHERE `ID_PERSONA` = ' +
         QuotedStr(txtConsEst.Text) + ' AND ESTADO = 1');
       // sql.Clear;
       with DataModule1.qryTiempo do
@@ -193,15 +208,16 @@ end;
 
 procedure TfrmIndex.excelExportClick(Sender: TObject);
 begin
-  frmexport:=tfrmexport.create(application);
+  frmexport := tfrmexport.create(application);
   frmexport.showmodal;
 
 end;
 
 procedure TfrmIndex.exitClick(Sender: TObject);
 begin
-  ShowMessage('Recuerde sacar todas los estudiantes que se encuentren en uso libre');
-  Application.Terminate;
+  ShowMessage
+    ('Recuerde sacar todas los estudiantes que se encuentren en uso libre');
+  application.Terminate;
 end;
 
 end.
