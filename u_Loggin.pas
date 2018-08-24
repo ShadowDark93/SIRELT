@@ -19,7 +19,9 @@ type
     StyleBook1: TStyleBook;
     Image1: TImage;
     Image2: TImage;
+    Button2: TButton;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,6 +49,7 @@ begin
     begin
       frmIndex:=TfrmIndex.Create(Application);
       frmIndex.Show;
+      self.Close;
     end
     else
     begin
@@ -54,6 +57,11 @@ begin
     end;
 
   end;
+end;
+
+procedure TfrmLoggin.Button2Click(Sender: TObject);
+begin
+  self.Close;
 end;
 
 end.

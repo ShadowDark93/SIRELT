@@ -14,6 +14,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmLoggin, frmLoggin);
   Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TfrmExport, frmExport);
+  Application.CreateForm(TfrmIndex, frmIndex);
   Application.Run;
 end.
