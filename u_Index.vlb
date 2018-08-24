@@ -95,11 +95,8 @@ Coordinates=481,286,92,51
 Coordinates=202,344,82,33
 
 [DataModule1.]
-Coordinates=1236,50,133,51
-Visible=False
-
-[DataModule1.qryTiempo]
 Coordinates=640,148,133,51
+Visible=False
 
 [BindSourceDB2]
 Coordinates=640,300,125,177

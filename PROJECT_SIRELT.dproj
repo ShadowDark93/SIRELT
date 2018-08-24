@@ -354,7 +354,7 @@
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="dmConexion.pas">
-            <Form>DataModule1</Form>
+            <Form>dm</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>

@@ -13,9 +13,6 @@ uses
 type
   TfrmExport = class(TForm)
     Label1: TLabel;
-    UniConnection1: TUniConnection;
-    MySQLUniProvider1: TMySQLUniProvider;
-    qryExportar: TUniQuery;
     dateInicio: TDateEdit;
     dateFinal: TDateEdit;
     Label2: TLabel;
@@ -29,11 +26,13 @@ type
     CheckBox1: TCheckBox;
     excelExport: TImage;
     AniIndicator1: TAniIndicator;
+    exit: TImage;
     procedure FormCreate(Sender: TObject);
     procedure CheckBox1Change(Sender: TObject);
     procedure excelExportClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure exportExcel;
+    procedure exitClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -48,12 +47,14 @@ implementation
 
 {$R *.fmx}
 
+uses dmConexion;
+
 procedure TfrmExport.Button1Click(Sender: TObject);
 begin
   ShowMessage('inicio');
   if CheckBox1.IsChecked = true then
   begin
-    with qryExportar do
+    with dm.qryExportar do
     begin
       sql.Add('AND PROGRAMA = ' + QuotedStr(cmbPrograma.Selected.Text) +
         ' AND SALA = ' + QuotedStr(cmbSala.Selected.Text));
@@ -64,7 +65,7 @@ begin
   end
   else
   begin
-    with qryExportar do
+    with dm.qryExportar do
     begin
       Params.ParamByName('hi').Value := dateInicio.Text + '%';
       Params.ParamByName('hs').Value := dateFinal.Text + '%';
@@ -86,14 +87,15 @@ end;
 
 procedure TfrmExport.excelExportClick(Sender: TObject);
 begin
+  AniIndicator1.Enabled := true;
   if CheckBox1.IsChecked = true then
   begin
-    with qryExportar do
+    with dm.qryExportar do
     begin
       sql.Add('AND PROGRAMA = ' + QuotedStr(cmbPrograma.Selected.Text) +
         ' AND SALA = ' + QuotedStr(cmbSala.Selected.Text));
-      Params.ParamByName('hi').Value := dateInicio.Text ;
-      Params.ParamByName('hs').Value := dateFinal.Text;
+      Params.ParamByName('fi').Value := dateInicio.Text;
+      Params.ParamByName('fs').Value := dateFinal.Text;
       ExecSQL;
     end;
     // Ejecuta el procedimiento de exportación a Excel
@@ -102,18 +104,24 @@ begin
   end
   else
   begin
-   { with qryExportar do
+    with dm.qryExportar do
     begin
-      Params.ParamByName('hi').Value := dateInicio.Text + '%';
-      Params.ParamByName('hs').Value := dateFinal.Text + '%';
+
+      Params.ParamByName('fi').Value := dateInicio.Text;
+      Params.ParamByName('fs').Value := dateFinal.Text;
       ExecSQL;
     end;
-    }
+
     // Ejecuta el procedimiento de exportación a Excel
     exportExcel;
 
   end;
+  AniIndicator1.Enabled := false;
+end;
 
+procedure TfrmExport.exitClick(Sender: TObject);
+begin
+  self.Close;
 end;
 
 procedure TfrmExport.exportExcel;
@@ -135,38 +143,39 @@ begin
   libro.Cells[i, 4] := 'PROGRAMA';
   libro.Cells[i, 5] := 'SALA';
   libro.Cells[i, 6] := 'EQUIPO';
-  libro.Cells[i, 7] := 'HORA_INICIO';
-  libro.Cells[i, 8] := 'OBSERVACIONES';
-  libro.Cells[i, 9] := 'HORA_SALIDA';
-  libro.Cells[i, 10] := 'ESTADO';
-  libro.Cells[i, 11] := 'DURACION';
+  libro.Cells[i, 7] := 'FECHA_INICIO';
+  libro.Cells[i, 8] := 'HORA_INICIO';
+  libro.Cells[i, 9] := 'OBSERVACIONES';
+  libro.Cells[i, 10] := 'FECHA_SALIDA';
+  libro.Cells[i, 11] := 'HORA_SALIDA';
+  libro.Cells[i, 12] := 'ESTADO';
+  libro.Cells[i, 13] := 'DURACION';
 
-  with qryExportar do
+  with dm.qryExportar do
   begin
     First;
-    while not qryExportar.Eof do
+    while not dm.qryExportar.Eof do
     begin
       // Incremente el numero de linea antes de escribir estos datos
       // Son los datos de cabecera
       i := i + 1;
-      libro.Cells[i, 1] := qryExportar.FieldByName('NUM_REGISTRO').AsString;
-      libro.Cells[i, 2] := qryExportar.FieldByName('TIPO_PERSONA').AsString;
-      libro.Cells[i, 3] := qryExportar.FieldByName('ID_PERSONA').AsString;
-      libro.Cells[i, 4] := qryExportar.FieldByName('PROGRAMA').AsString;
-      libro.Cells[i, 5] := qryExportar.FieldByName('SALA').AsString;
-      libro.Cells[i, 6] := qryExportar.FieldByName('EQUIPO').AsString;
-      libro.Cells[i, 7] := qryExportar.FieldByName('HORA_INICIO').AsString;
-      libro.Cells[i, 8] := qryExportar.FieldByName('OBSERVACIONES').AsString;
-      libro.Cells[i, 9] := qryExportar.FieldByName('HORA_SALIDA').AsString;
-      libro.Cells[i, 10] := qryExportar.FieldByName('ESTADO').AsString;
-      libro.Cells[i, 11] := qryExportar.FieldByName('DURACION').AsString;
+      libro.Cells[i, 1] := dm.qryExportar.FieldByName('NUM_REGISTRO').AsString;
+      libro.Cells[i, 2] := dm.qryExportar.FieldByName('TIPO_PERSONA').AsString;
+      libro.Cells[i, 3] := dm.qryExportar.FieldByName('ID_PERSONA').AsString;
+      libro.Cells[i, 4] := dm.qryExportar.FieldByName('PROGRAMA').AsString;
+      libro.Cells[i, 5] := dm.qryExportar.FieldByName('SALA').AsString;
+      libro.Cells[i, 6] := dm.qryExportar.FieldByName('EQUIPO').AsString;
+      libro.Cells[i, 7] := dm.qryExportar.FieldByName('HORA_INICIO').AsString;
+      libro.Cells[i, 8] := dm.qryExportar.FieldByName('HORA_INICIO').AsString;
+      libro.Cells[i, 9] := dm.qryExportar.FieldByName('OBSERVACIONES').AsString;
+      libro.Cells[i, 10] := dm.qryExportar.FieldByName('HORA_SALIDA').AsString;
+      libro.Cells[i, 11] := dm.qryExportar.FieldByName('HORA_SALIDA').AsString;
+      libro.Cells[i, 12] := dm.qryExportar.FieldByName('ESTADO').AsString;
+      libro.Cells[i, 13] := dm.qryExportar.FieldByName('DURACION').AsString;
 
       Next;
     end;
-    {
-    ProgressBar1.Min:=0;
-    ProgressBar1.max:=qryExportar.RecordCount;
-     }
+
   end;
   Excel.visible := true;
 

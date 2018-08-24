@@ -39,7 +39,7 @@ uses dmConexion, u_Index;
 
 procedure TfrmLoggin.Button1Click(Sender: TObject);
 begin
-  with DataModule1.qryLoggin do
+  with dm.qryLoggin do
   begin
       Params.ParamByName('usr').Value :=txtNombre.Text;
       Params.ParamByName('pwd').Value:= txtPassword.Text;
@@ -49,7 +49,6 @@ begin
     begin
       frmIndex:=TfrmIndex.Create(Application);
       frmIndex.Show;
-      self.Close;
     end
     else
     begin

@@ -7,14 +7,15 @@ uses
   MySQLUniProvider, Datasnap.DBClient, Datasnap.Provider, SQLiteUniProvider;
 
 type
-  TDataModule1 = class(TDataModule)
+  Tdm = class(TDataModule)
     qryLoggin: TUniQuery;
     qryIngreso: TUniQuery;
     qrySalida: TUniQuery;
     qryConsulta: TUniQuery;
-    qryTiempo: TUniQuery;
     MySQL: TUniConnection;
     MySQLUniProvider1: TMySQLUniProvider;
+    qryExportar: TUniQuery;
+    qryTiempo: TUniQuery;
   private
     { Private declarations }
   public
@@ -22,7 +23,7 @@ type
   end;
 
 var
-  DataModule1: TDataModule1;
+  dm: Tdm;
 
 implementation
 

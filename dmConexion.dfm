@@ -1,4 +1,4 @@
-object DataModule1: TDataModule1
+object dm: Tdm
   OldCreateOrder = False
   Height = 367
   Width = 699
@@ -8,7 +8,7 @@ object DataModule1: TDataModule1
       'SELECT * FROM loggin'
       'WHERE USR =:usr AND PASS =:pwd')
     Left = 40
-    Top = 176
+    Top = 120
     ParamData = <
       item
         DataType = ftUnknown
@@ -65,82 +65,14 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       '')
     Left = 120
-    Top = 176
+    Top = 120
   end
   object qrySalida: TUniQuery
-    SQLInsert.Strings = (
-      'INSERT INTO USO_LIBRE_NVO'
-      
-        '  (NUM_REGISTRO, TIPO_PERSONA, ID_PERSONA, PROGRAMA, SALA, EQUIP' +
-        'O, FECHA_INICIO, HORA_INICIO, OBSERVACIONES, FECHA_SALIDA, HORA_' +
-        'SALIDA, DURACION, ESTADO)'
-      'VALUES'
-      
-        '  (:NUM_REGISTRO, :TIPO_PERSONA, :ID_PERSONA, :PROGRAMA, :SALA, ' +
-        ':EQUIPO, :FECHA_INICIO, :HORA_INICIO, :OBSERVACIONES, :FECHA_SAL' +
-        'IDA, :HORA_SALIDA, :DURACION, :ESTADO)')
-    SQLDelete.Strings = (
-      'DELETE FROM USO_LIBRE_NVO'
-      'WHERE'
-      '  NUM_REGISTRO = :Old_NUM_REGISTRO')
-    SQLUpdate.Strings = (
-      'UPDATE USO_LIBRE_NVO'
-      'SET'
-      
-        'OBSERVACIONES = :OBSERVACIONES, FECHA_SALIDA = :FECHA_SALIDA, HO' +
-        'RA_SALIDA = :HORA_SALIDA, DURACION = :DURACION, ESTADO = :ESTADO'
-      'WHERE'
-      '  ESTADO = 1')
-    SQLLock.Strings = (
-      'SELECT * FROM USO_LIBRE_NVO'
-      'WHERE'
-      '  NUM_REGISTRO = :Old_NUM_REGISTRO'
-      'FOR UPDATE')
-    SQLRefresh.Strings = (
-      
-        'SELECT NUM_REGISTRO, TIPO_PERSONA, ID_PERSONA, PROGRAMA, SALA, E' +
-        'QUIPO, FECHA_INICIO, HORA_INICIO, OBSERVACIONES, FECHA_SALIDA, H' +
-        'ORA_SALIDA, DURACION, ESTADO FROM USO_LIBRE_NVO'
-      'WHERE'
-      '  NUM_REGISTRO = :NUM_REGISTRO')
-    SQLRecCount.Strings = (
-      'SELECT COUNT(*) FROM USO_LIBRE_NVO')
     Connection = MySQL
     SQL.Strings = (
-      'UPDATE USO_LIBRE_NVO'
-      'SET'
-      
-        'OBSERVACIONES = :OBSERVACIONES, FECHA_SALIDA = :FECHA_SALIDA, HO' +
-        'RA_SALIDA = :HORA_SALIDA, ESTADO = :ESTADO'
-      'WHERE ID_PERSONA =:ID AND ESTADO = 1')
+      '')
     Left = 200
-    Top = 176
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'OBSERVACIONES'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'FECHA_SALIDA'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'HORA_SALIDA'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'ESTADO'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'ID'
-        Value = nil
-      end>
+    Top = 120
   end
   object qryConsulta: TUniQuery
     Connection = MySQL
@@ -150,8 +82,9 @@ object DataModule1: TDataModule1
         'ORA_INICIO` FROM `USO_LIBRE_NVO`'
       'WHERE ESTADO = 1'
       'ORDER BY SALA AND `EQUIPO` ASC ')
+    Active = True
     Left = 272
-    Top = 176
+    Top = 120
   end
   object MySQL: TUniConnection
     ProviderName = 'MySQL'
@@ -161,17 +94,77 @@ object DataModule1: TDataModule1
     Server = '10.42.1.7'
     Connected = True
     LoginPrompt = False
-    Left = 40
-    Top = 112
+    Left = 120
+    Top = 48
     EncryptedPassword = '8CFF9EFF93FF9EFF8CFF'
   end
   object MySQLUniProvider1: TMySQLUniProvider
     Left = 40
     Top = 48
   end
+  object qryExportar: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO USO_LIBRE'
+      
+        '  (NUM_REGISTRO, TIPO_PERSONA, ID_PERSONA, PROGRAMA, SALA, EQUIP' +
+        'O, HORA_INICIO, OBSERVACIONES, HORA_SALIDA, ESTADO, DURACION)'
+      'VALUES'
+      
+        '  (:NUM_REGISTRO, :TIPO_PERSONA, :ID_PERSONA, :PROGRAMA, :SALA, ' +
+        ':EQUIPO, :HORA_INICIO, :OBSERVACIONES, :HORA_SALIDA, :ESTADO, :D' +
+        'URACION)')
+    SQLDelete.Strings = (
+      'DELETE FROM USO_LIBRE'
+      'WHERE'
+      '  NUM_REGISTRO = :Old_NUM_REGISTRO')
+    SQLUpdate.Strings = (
+      'UPDATE USO_LIBRE'
+      'SET'
+      
+        '  NUM_REGISTRO = :NUM_REGISTRO, TIPO_PERSONA = :TIPO_PERSONA, ID' +
+        '_PERSONA = :ID_PERSONA, PROGRAMA = :PROGRAMA, SALA = :SALA, EQUI' +
+        'PO = :EQUIPO, HORA_INICIO = :HORA_INICIO, OBSERVACIONES = :OBSER' +
+        'VACIONES, HORA_SALIDA = :HORA_SALIDA, ESTADO = :ESTADO, DURACION' +
+        ' = :DURACION'
+      'WHERE'
+      '  NUM_REGISTRO = :Old_NUM_REGISTRO')
+    SQLLock.Strings = (
+      'SELECT * FROM USO_LIBRE'
+      'WHERE'
+      '  NUM_REGISTRO = :Old_NUM_REGISTRO'
+      'FOR UPDATE')
+    SQLRefresh.Strings = (
+      
+        'SELECT NUM_REGISTRO, TIPO_PERSONA, ID_PERSONA, PROGRAMA, SALA, E' +
+        'QUIPO, HORA_INICIO, OBSERVACIONES, HORA_SALIDA, ESTADO, DURACION' +
+        ' FROM USO_LIBRE'
+      'WHERE'
+      '  NUM_REGISTRO = :NUM_REGISTRO')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM USO_LIBRE')
+    Connection = MySQL
+    SQL.Strings = (
+      'SELECT * FROM USO_LIBRE_NVO'
+      'WHERE FECHA_INICIO BETWEEN :fi AND :fs'
+      '')
+    Active = True
+    Left = 272
+    Top = 48
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'fi'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'fs'
+        Value = nil
+      end>
+  end
   object qryTiempo: TUniQuery
     Connection = MySQL
-    Left = 384
-    Top = 80
+    Left = 200
+    Top = 48
   end
 end
