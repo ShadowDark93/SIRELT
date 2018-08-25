@@ -103,64 +103,11 @@ object dm: Tdm
     Top = 48
   end
   object qryExportar: TUniQuery
-    SQLInsert.Strings = (
-      'INSERT INTO USO_LIBRE'
-      
-        '  (NUM_REGISTRO, TIPO_PERSONA, ID_PERSONA, PROGRAMA, SALA, EQUIP' +
-        'O, HORA_INICIO, OBSERVACIONES, HORA_SALIDA, ESTADO, DURACION)'
-      'VALUES'
-      
-        '  (:NUM_REGISTRO, :TIPO_PERSONA, :ID_PERSONA, :PROGRAMA, :SALA, ' +
-        ':EQUIPO, :HORA_INICIO, :OBSERVACIONES, :HORA_SALIDA, :ESTADO, :D' +
-        'URACION)')
-    SQLDelete.Strings = (
-      'DELETE FROM USO_LIBRE'
-      'WHERE'
-      '  NUM_REGISTRO = :Old_NUM_REGISTRO')
-    SQLUpdate.Strings = (
-      'UPDATE USO_LIBRE'
-      'SET'
-      
-        '  NUM_REGISTRO = :NUM_REGISTRO, TIPO_PERSONA = :TIPO_PERSONA, ID' +
-        '_PERSONA = :ID_PERSONA, PROGRAMA = :PROGRAMA, SALA = :SALA, EQUI' +
-        'PO = :EQUIPO, HORA_INICIO = :HORA_INICIO, OBSERVACIONES = :OBSER' +
-        'VACIONES, HORA_SALIDA = :HORA_SALIDA, ESTADO = :ESTADO, DURACION' +
-        ' = :DURACION'
-      'WHERE'
-      '  NUM_REGISTRO = :Old_NUM_REGISTRO')
-    SQLLock.Strings = (
-      'SELECT * FROM USO_LIBRE'
-      'WHERE'
-      '  NUM_REGISTRO = :Old_NUM_REGISTRO'
-      'FOR UPDATE')
-    SQLRefresh.Strings = (
-      
-        'SELECT NUM_REGISTRO, TIPO_PERSONA, ID_PERSONA, PROGRAMA, SALA, E' +
-        'QUIPO, HORA_INICIO, OBSERVACIONES, HORA_SALIDA, ESTADO, DURACION' +
-        ' FROM USO_LIBRE'
-      'WHERE'
-      '  NUM_REGISTRO = :NUM_REGISTRO')
-    SQLRecCount.Strings = (
-      'SELECT COUNT(*) FROM USO_LIBRE')
     Connection = MySQL
     SQL.Strings = (
-      'SELECT * FROM USO_LIBRE_NVO'
-      'WHERE FECHA_INICIO BETWEEN :fi AND :fs'
-      '')
-    Active = True
+      'SELECT * FROM USO_LIBRE_NVO')
     Left = 272
     Top = 48
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'fi'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'fs'
-        Value = nil
-      end>
   end
   object qryTiempo: TUniQuery
     Connection = MySQL

@@ -92,11 +92,15 @@ begin
   begin
     with dm.qryExportar do
     begin
-      sql.Add('AND PROGRAMA = ' + QuotedStr(cmbPrograma.Selected.Text) +
-        ' AND SALA = ' + QuotedStr(cmbSala.Selected.Text));
+      OPEN;
+      SQL.Clear;
+      sql.Add('SELECT * FROM USO_LIBRE_NVO WHERE FECHA_INICIO BETWEEN :fi AND :fs AND PROGRAMA =:p  AND SALA =:s');
+      Params.ParamByName('p').Value := cmbPrograma.Selected.Text;
+      Params.ParamByName('s').Value := cmbSala.Selected.Text;
       Params.ParamByName('fi').Value := dateInicio.Text;
       Params.ParamByName('fs').Value := dateFinal.Text;
       ExecSQL;
+
     end;
     // Ejecuta el procedimiento de exportación a Excel
     exportExcel;
@@ -106,7 +110,9 @@ begin
   begin
     with dm.qryExportar do
     begin
-
+      OPEN;
+      SQL.Clear;
+      sql.Add('SELECT * FROM USO_LIBRE_NVO  WHERE FECHA_INICIO BETWEEN :fi AND :fs');
       Params.ParamByName('fi').Value := dateInicio.Text;
       Params.ParamByName('fs').Value := dateFinal.Text;
       ExecSQL;
