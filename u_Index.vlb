@@ -101,3 +101,6 @@ Visible=False
 [BindSourceDB2]
 Coordinates=640,300,125,177
 
+[dm.qryConsulta]
+Visible=False
+

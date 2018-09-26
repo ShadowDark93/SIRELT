@@ -171,14 +171,13 @@ begin
       libro.Cells[i, 4] := dm.qryExportar.FieldByName('PROGRAMA').AsString;
       libro.Cells[i, 5] := dm.qryExportar.FieldByName('SALA').AsString;
       libro.Cells[i, 6] := dm.qryExportar.FieldByName('EQUIPO').AsString;
-      libro.Cells[i, 7] := dm.qryExportar.FieldByName('HORA_INICIO').AsString;
+      libro.Cells[i, 7] := dm.qryExportar.FieldByName('FECHA_INICIO').AsString;
       libro.Cells[i, 8] := dm.qryExportar.FieldByName('HORA_INICIO').AsString;
       libro.Cells[i, 9] := dm.qryExportar.FieldByName('OBSERVACIONES').AsString;
-      libro.Cells[i, 10] := dm.qryExportar.FieldByName('HORA_SALIDA').AsString;
+      libro.Cells[i, 10] := dm.qryExportar.FieldByName('FECHA_SALIDA').AsString;
       libro.Cells[i, 11] := dm.qryExportar.FieldByName('HORA_SALIDA').AsString;
       libro.Cells[i, 12] := dm.qryExportar.FieldByName('ESTADO').AsString;
       libro.Cells[i, 13] := dm.qryExportar.FieldByName('DURACION').AsString;
-
       Next;
     end;
 
