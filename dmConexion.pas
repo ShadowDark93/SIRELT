@@ -15,7 +15,7 @@ type
     MySQL: TUniConnection;
     MySQLUniProvider1: TMySQLUniProvider;
     qryExportar: TUniQuery;
-    qryTiempo: TUniQuery;
+    qryEstudiante: TUniQuery;
   private
     { Private declarations }
   public

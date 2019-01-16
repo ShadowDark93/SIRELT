@@ -109,7 +109,7 @@ object dm: Tdm
     Left = 272
     Top = 48
   end
-  object qryTiempo: TUniQuery
+  object qryEstudiante: TUniQuery
     Connection = MySQL
     Left = 200
     Top = 48
