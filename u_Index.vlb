@@ -61,7 +61,7 @@ Visible=True
 Coordinates=340,234,78,33
 
 []
-Coordinates=353,376,83,51
+Coordinates=51,152,72,51
 
 [DataModule1.qryLoggin]
 Coordinates=451,80,131,51
@@ -99,8 +99,60 @@ Coordinates=640,148,133,51
 Visible=False
 
 [BindSourceDB2]
-Coordinates=640,300,125,177
+Coordinates=640,300,92,177
 
 [dm.qryConsulta]
+Visible=False
+Coordinates=680,1,92,33
+
+[dm.qryFacultad]
+Coordinates=446,426,91,87
+
+[dm.qrySalida]
+Coordinates=41,71,79,51
+
+[Image2]
+Coordinates=265,152,49,51
+
+[dm.qrySala]
+Coordinates=338,373,69,51
+
+[Image1]
+Coordinates=417,286,49,51
+
+[Image4]
+Coordinates=417,80,49,51
+
+[Label9]
+Coordinates=0,0,46,51
+
+[dm.qryLoggin]
+Coordinates=14,373,83,51
+
+[dm.qryIngreso]
+Coordinates=417,356,85,51
+
+[exit]
+Coordinates=204,255,40,51
+
+[Image3]
+Coordinates=65,1,49,51
+
+[dm.qryEstudiante]
+Coordinates=541,80,101,51
+
+[Image5]
+Coordinates=359,1,49,51
+
+[dm.qryExportar]
+Coordinates=192,373,91,51
+
+[dm.qryEquipo]
+Coordinates=103,373,83,51
+
+[dm.cdsFacultad]
+Visible=False
+
+[dm.cdsSalas]
 Visible=False
 

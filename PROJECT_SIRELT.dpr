@@ -7,9 +7,12 @@ uses
   u_Index in 'u_Index.pas' {frmIndex},
   dmConexion in 'dmConexion.pas' {dm: TDataModule},
   u_ExcelExport in 'u_ExcelExport.pas' {frmExport},
-  u_estudiante in 'u_estudiante.pas',
-  Unit1 in 'Unit1.pas' {Form1},
-  u_facultad in 'u_facultad.pas';
+  frmFacultad in 'frmFacultad.pas' {frmFacult},
+  u_facultad in 'u_facultad.pas',
+  u_salas in 'u_salas.pas',
+  frm_Salas in 'frm_Salas.pas' {frmSalas},
+  u_estudiantes in 'u_estudiantes.pas',
+  frm_Estudiantes in 'frm_Estudiantes.pas' {frmEstudiante};
 
 {$R *.res}
 
@@ -18,6 +21,8 @@ begin
   Application.CreateForm(TfrmLoggin, frmLoggin);
   Application.CreateForm(Tdm, dm);
   Application.CreateForm(TfrmIndex, frmIndex);
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmFacult, frmFacult);
+  Application.CreateForm(TfrmSalas, frmSalas);
+  Application.CreateForm(TfrmEstudiante, frmEstudiante);
   Application.Run;
 end.

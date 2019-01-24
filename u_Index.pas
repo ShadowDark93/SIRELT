@@ -49,7 +49,19 @@ type
     Label9: TLabel;
     Image5: TImage;
     exit: TImage;
+    Image6: TImage;
+    Image7: TImage;
+    CONFIGURACIONES: TTabItem;
+    Image8: TImage;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Image9: TImage;
+    Label13: TLabel;
     excelExport: TImage;
+    Label14: TLabel;
+    Image10: TImage;
+    Label15: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure btnSalidaClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -58,6 +70,9 @@ type
     procedure Image5Click(Sender: TObject);
     procedure exitClick(Sender: TObject);
     procedure excelExportClick(Sender: TObject);
+    procedure Image6Click(Sender: TObject);
+    procedure Image9Click(Sender: TObject);
+    procedure Image10Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -71,7 +86,8 @@ implementation
 
 {$R *.fmx}
 
-uses dmConexion, u_Loggin, u_ExcelExport;
+uses dmConexion, u_Loggin, u_ExcelExport, frmFacultad, frm_Salas,
+  frm_Estudiantes;
 
 procedure TfrmIndex.Button1Click(Sender: TObject);
 begin
@@ -135,6 +151,12 @@ begin
   EXCEPT
     ShowMessage('Ha ocurrido un error, por favor valide de nuevo');
   END;
+end;
+
+procedure TfrmIndex.Image10Click(Sender: TObject);
+begin
+  frmEstudiante.ShowModal;
+  dm.cdsEstudiantes.Refresh;
 end;
 
 procedure TfrmIndex.Image1Click(Sender: TObject);
@@ -212,18 +234,29 @@ begin
   end;
 end;
 
+procedure TfrmIndex.Image6Click(Sender: TObject);
+begin
+  dm.cdsSalas.Refresh;
+  frmSalas.ShowModal;
+end;
+
+procedure TfrmIndex.Image9Click(Sender: TObject);
+begin
+  frmFacult.ShowModal;
+  dm.cdsFacultad.Refresh;
+end;
+
 procedure TfrmIndex.excelExportClick(Sender: TObject);
 begin
-  frmexport := tfrmexport.create(application);
-  frmexport.showmodal;
-
+  frmExport := TfrmExport.Create(Application);
+  frmExport.ShowModal;
 end;
 
 procedure TfrmIndex.exitClick(Sender: TObject);
 begin
   ShowMessage
     ('Recuerde sacar todas los estudiantes que se encuentren en uso libre');
-  application.Terminate;
+  Application.Terminate;
 end;
 
 end.

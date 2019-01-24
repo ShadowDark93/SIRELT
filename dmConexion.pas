@@ -16,6 +16,18 @@ type
     MySQLUniProvider1: TMySQLUniProvider;
     qryExportar: TUniQuery;
     qryEstudiante: TUniQuery;
+    qryFacultad: TUniQuery;
+    qryEquipo: TUniQuery;
+    qrySala: TUniQuery;
+    prvFacultad: TDataSetProvider;
+    cdsFacultad: TClientDataSet;
+    qryTiempo: TUniQuery;
+    prvEstudiantes: TDataSetProvider;
+    cdsEstudiantes: TClientDataSet;
+    prvEquipos: TDataSetProvider;
+    cdsEquipos: TClientDataSet;
+    prvSalas: TDataSetProvider;
+    cdsSalas: TClientDataSet;
   private
     { Private declarations }
   public
@@ -30,5 +42,7 @@ implementation
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
 {$R *.dfm}
+
+
 
 end.
