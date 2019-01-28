@@ -12,7 +12,8 @@ uses
   u_salas in 'u_salas.pas',
   frm_Salas in 'frm_Salas.pas' {frmSalas},
   u_estudiantes in 'u_estudiantes.pas',
-  frm_Estudiantes in 'frm_Estudiantes.pas' {frmEstudiante};
+  frm_Estudiantes in 'frm_Estudiantes.pas' {frmEstudiante},
+  frm_Consultas in 'frm_Consultas.pas' {Form1};
 
 {$R *.res}
 
@@ -24,5 +25,6 @@ begin
   Application.CreateForm(TfrmFacult, frmFacult);
   Application.CreateForm(TfrmSalas, frmSalas);
   Application.CreateForm(TfrmEstudiante, frmEstudiante);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.
