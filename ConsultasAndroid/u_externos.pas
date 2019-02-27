@@ -1,0 +1,35 @@
+unit u_externos;
+
+interface
+
+procedure ingresarPersonalExterno(ID_EXTERNO, NOMBRES_EXTERNO,
+  APELLIDOS_EXTERNO, CARGO_EXTERNO, LUGAR_DESTINO_EXTERNO,OTRO_LUGAR_EXTERNOS: string);
+
+implementation
+
+uses dmConexion;
+
+procedure ingresarPersonalExterno(ID_EXTERNO, NOMBRES_EXTERNO,
+  APELLIDOS_EXTERNO, CARGO_EXTERNO, LUGAR_DESTINO_EXTERNO,OTRO_LUGAR_EXTERNOS: string);
+BEGIN
+  with dm.qryexternos do
+  begin
+    open;
+    sql.Clear;
+    SQL.Add('INSERT INTO PERSONAL_EXTERNO (ID_EXTERNO, NOMBRES_EXTERNO, APELLIDOS_EXTERNO, CARGO_EXTERNO, LUGAR_DESTINO_EXTERNO, OTRO_LUGAR_EXTERNOS)');
+    sql.Add(' VALUES (:ID_EXTERNO, :NOMBRES_EXTERNO, :APELLIDOS_EXTERNO, :CARGO_EXTERNO, :LUGAR_DESTINO_EXTERNO, :OTRO_LUGAR_EXTERNOS)');
+    Params.ParamByName('ID_EXTERNO').Value := ID_EXTERNO;
+    Params.ParamByName('NOMBRES_EXTERNO').Value := NOMBRES_EXTERNO;
+    Params.ParamByName('APELLIDOS_EXTERNO').Value := APELLIDOS_EXTERNO;
+    Params.ParamByName('CARGO_EXTERNO').Value := CARGO_EXTERNO;
+    Params.ParamByName('LUGAR_DESTINO_EXTERNO').Value := LUGAR_DESTINO_EXTERNO;
+    Params.ParamByName('OTRO_LUGAR_EXTERNOS').Value := OTRO_LUGAR_EXTERNOS;
+    ExecSQL;
+  end;
+END;
+
+
+
+
+
+end.

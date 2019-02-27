@@ -17,7 +17,7 @@ begin
     Insert;
     FieldByName('DESCRIPCION').AsString := descripcionSala;
     FieldByName('ESTADO').AsString := '1';
-    ApplyUpdates(3);
+    ApplyUpdates(1);
     Refresh;
   end;
 end;

@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A0DE467C-B320-404F-B525-581FCECEB95D}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="PROJECT_SIRELT.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ConsultasAndroid\ConsultasAndroid.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="PROJECT_SIRELT">
+        <MSBuild Projects="PROJECT_SIRELT.dproj"/>
+    </Target>
+    <Target Name="PROJECT_SIRELT:Clean">
+        <MSBuild Projects="PROJECT_SIRELT.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PROJECT_SIRELT:Make">
+        <MSBuild Projects="PROJECT_SIRELT.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ConsultasAndroid">
+        <MSBuild Projects="ConsultasAndroid\ConsultasAndroid.dproj"/>
+    </Target>
+    <Target Name="ConsultasAndroid:Clean">
+        <MSBuild Projects="ConsultasAndroid\ConsultasAndroid.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ConsultasAndroid:Make">
+        <MSBuild Projects="ConsultasAndroid\ConsultasAndroid.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="PROJECT_SIRELT;ConsultasAndroid"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="PROJECT_SIRELT:Clean;ConsultasAndroid:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="PROJECT_SIRELT:Make;ConsultasAndroid:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

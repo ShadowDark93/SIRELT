@@ -56,12 +56,12 @@ type
     Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
-    Image9: TImage;
-    Label13: TLabel;
     excelExport: TImage;
     Label14: TLabel;
     Image10: TImage;
     Label15: TLabel;
+    Image9: TImage;
+    Label13: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure btnSalidaClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -87,7 +87,7 @@ implementation
 {$R *.fmx}
 
 uses dmConexion, u_Loggin, u_ExcelExport, frmFacultad, frm_Salas,
-  frm_Estudiantes;
+  frm_Estudiantes, frm_ConsultasPersonasActivas, u_ConsultarEstudiante;
 
 procedure TfrmIndex.Button1Click(Sender: TObject);
 begin
@@ -242,8 +242,7 @@ end;
 
 procedure TfrmIndex.Image9Click(Sender: TObject);
 begin
-  frmFacult.ShowModal;
-  dm.cdsFacultad.Refresh;
+  frmConsultaPersonasActivas.ShowModal;
 end;
 
 procedure TfrmIndex.excelExportClick(Sender: TObject);

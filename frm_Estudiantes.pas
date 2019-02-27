@@ -31,7 +31,8 @@ type
     Image2: TImage;
     Image4: TImage;
     Image1: TImage;
-    procedure FormCreate(Sender: TObject);
+
+    procedure Image3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,15 +48,10 @@ implementation
 
 uses dmConexion;
 
-procedure TfrmEstudiante.FormCreate(Sender: TObject);
-begin
-  while not dm.cdsFacultad.Eof do
-  begin
-    ComboBoxID_FACULTAD.Items.Add(dm.cdsFacultad.Fields[0].AsString + '    - ' +
-      dm.cdsFacultad.Fields[1].AsString);
-    dm.cdsFacultad.Next;
-  end;
 
+procedure TfrmEstudiante.Image3Click(Sender: TObject);
+begin
+  self.Close;
 end;
 
 end.

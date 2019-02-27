@@ -16,11 +16,8 @@ type
     MySQLUniProvider1: TMySQLUniProvider;
     qryExportar: TUniQuery;
     qryEstudiante: TUniQuery;
-    qryFacultad: TUniQuery;
     qryEquipo: TUniQuery;
     qrySala: TUniQuery;
-    prvFacultad: TDataSetProvider;
-    cdsFacultad: TClientDataSet;
     qryTiempo: TUniQuery;
     prvEstudiantes: TDataSetProvider;
     cdsEstudiantes: TClientDataSet;

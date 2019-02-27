@@ -109,7 +109,6 @@ type
     BindingsList1: TBindingsList;
     procedure Image1Click(Sender: TObject);
     procedure Image4Click(Sender: TObject);
-    procedure Image2Click(Sender: TObject);
     procedure Image3Click(Sender: TObject);
   private
     { Private declarations }
@@ -124,28 +123,11 @@ implementation
 
 {$R *.fmx}
 
-uses dmConexion, u_facultad;
+uses dmConexion;
 
 procedure TfrmFacult.Image1Click(Sender: TObject);
 begin
   txtNombre.Text := '';
-  dm.cdsFacultad.Append;
-end;
-
-procedure TfrmFacult.Image2Click(Sender: TObject);
-var
-  fac: string;
-begin
-  fac := InputBox('Buscar Facultad por nombre', 'Buscar Facultad: ', '');
-  u_facultad.buscarFacultad(fac);
-  if dm.qryFacultad.RecordCount > 0 then
-  begin
-    ShowMessage('La facultad se ha inscrito');
-  end
-  else
-  begin
-    ShowMessage('La facultad no se ha inscrito aun');
-  end;
 
 end;
 
@@ -164,7 +146,7 @@ begin
     end
     else
     begin
-      u_facultad.agregarFacultad(txtNombre.Text);
+
       ShowMessage('Se ha agregado correctamente la facultad');
       txtNombre.Text := '';
     end;

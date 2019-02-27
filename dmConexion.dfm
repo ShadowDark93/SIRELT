@@ -112,19 +112,8 @@ object dm: Tdm
   object qryEstudiante: TUniQuery
     Connection = MySQL
     SQL.Strings = (
-      
-        'SELECT * FROM ESTUDIANTE E INNER JOIN FACULTAD F WHERE `E`.ID_FA' +
-        'CULTAD = F.`ID_FACULTAD`')
-    Active = True
+      'SELECT * FROM ESTUDIANTE')
     Left = 120
-    Top = 208
-  end
-  object qryFacultad: TUniQuery
-    Connection = MySQL
-    SQL.Strings = (
-      'SELECT * FROM FACULTAD')
-    Active = True
-    Left = 40
     Top = 208
   end
   object qryEquipo: TUniQuery
@@ -142,19 +131,6 @@ object dm: Tdm
     Active = True
     Left = 280
     Top = 208
-  end
-  object prvFacultad: TDataSetProvider
-    DataSet = qryFacultad
-    Left = 40
-    Top = 272
-  end
-  object cdsFacultad: TClientDataSet
-    Active = True
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'prvFacultad'
-    Left = 40
-    Top = 328
   end
   object qryTiempo: TUniQuery
     SQLInsert.Strings = (

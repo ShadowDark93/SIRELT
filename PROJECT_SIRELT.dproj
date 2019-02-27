@@ -6,7 +6,7 @@
         <MainSource>PROJECT_SIRELT.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Release</Config>
-        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <Platform Condition="'$(Platform)'==''">Android</Platform>
         <TargetedPlatforms>19</TargetedPlatforms>
         <AppType>Application</AppType>
     </PropertyGroup>
@@ -362,11 +362,6 @@
             <Form>frmExport</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="frmFacultad.pas">
-            <Form>frmFacult</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
-        <DCCReference Include="u_facultad.pas"/>
         <DCCReference Include="u_salas.pas"/>
         <DCCReference Include="frm_Salas.pas">
             <Form>frmSalas</Form>
@@ -377,10 +372,11 @@
             <Form>frmEstudiante</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="frm_Consultas.pas">
-            <Form>Form1</Form>
+        <DCCReference Include="frm_ConsultasPersonasActivas.pas">
+            <Form>frmConsultaPersonasActivas</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="u_ConsultarEstudiante.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
