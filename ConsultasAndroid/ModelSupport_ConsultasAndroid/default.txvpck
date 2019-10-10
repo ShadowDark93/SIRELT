@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="5bxa83blte41ew3hq_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="design:view:::euvw8dhj9g4xwj01f_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="10,10,104,134" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:u_sinTIP.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::k40gj9g7ig4fsajpe_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="133,1,170,151" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:frm_personalExterno.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:frm_personalExterno.TfrmExterno" />
+    </reference>
+    <reference referencedUin="design:view:::8rwliqajlg4magtmk_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="114,163,116,134" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:u_externos.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::00g8pl800h4ycvwph_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="341,1,110,151" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:frm_Index.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:frm_Index.TfrmIndex" />
+    </reference>
+    <reference referencedUin="design:view:::7te0ngm58h4c7p0hi_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="322,171,132,151" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:frm_consultas.TfrmConsultasUCC" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:frm_consultas.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::iqctfiugbh4ikbfit_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="492,1,153,134" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:ConsultasAndroid.@unitclass" />
+    </reference>
+    <reference referencedUin="design:view:::fn71r5y0nh4gtlesl_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="492,154,156,151" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:frm_ingresoSinTip.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:frm_ingresoSinTip.TfrmPersonalST" />
+    </reference>
+    <reference referencedUin="design:view:::3jwcb6923i4a4rrdg_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="492,324,125,151" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:dmConexion.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:dmConexion.Tdm" />
+    </reference>
+    <reference referencedUin="design:view:::apu696628i44lt0xl_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="260,360,168,151" />
+      <property name="location_set_by_user" value="True" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:u_ConsultarPersona.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:u_ConsultarPersona.TSingleton" />
+    </reference>
+    <reference referencedUin="design:view:::bm9t7jx9ci4wfre0r_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="686,1,186,134" />
+      <reference referencedUin="delphi:e_class:src:ConsultasAndroid:u_consultasReiterativos.@unitclass" />
+    </reference>
+  </view>
+</nodeSet>

@@ -5,5 +5,5 @@ android:src="@drawable/splash_image"
 android:antialias="true"
 android:dither="true"
 android:filter="true"
-android:gravity="fill_vertical"
-android:tileMode="clamp"/>
+android:gravity="center"
+android:tileMode="disabled"/>

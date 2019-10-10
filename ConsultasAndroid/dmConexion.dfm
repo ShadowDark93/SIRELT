@@ -1,26 +1,7 @@
 object dm: Tdm
   OldCreateOrder = False
   Height = 410
-  Width = 605
-  object qryLoggin: TUniQuery
-    Connection = MySQL
-    SQL.Strings = (
-      'SELECT * FROM loggin'
-      'WHERE USR =:usr AND PASS =:pwd')
-    Left = 144
-    Top = 128
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'usr'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'pwd'
-        Value = nil
-      end>
-  end
+  Width = 682
   object MySQL: TUniConnection
     ProviderName = 'MySQL'
     Port = 3306
@@ -37,76 +18,218 @@ object dm: Tdm
     Left = 40
     Top = 48
   end
-  object qryEstudiante: TUniQuery
+  object qryPersona: TUniQuery
     Connection = MySQL
     SQL.Strings = (
-      'SELECT * FROM ESTUDIANTE')
-    Active = True
-    Left = 144
-    Top = 208
+      'SELECT * FROM PERSONA')
+    Left = 304
+    Top = 136
   end
   object qryConsultarNombre: TUniQuery
     Connection = MySQL
     SQL.Strings = (
-      'SELECT * FROM ESTUDIANTE')
-    Active = True
+      'SELECT * FROM PERSONA')
     Left = 48
     Top = 128
   end
-  object qrySinTip: TUniQuery
-    SQLInsert.Strings = (
-      'INSERT INTO USUARIO_SIN_TIP'
-      '  (NUM_REGISTRO, ID_ST, MOTIVO_ST, TIMESTAMP_ST)'
-      'VALUES'
-      '  (:NUM_REGISTRO, :ID_ST, :MOTIVO_ST, :TIMESTAMP_ST)')
+  object prvPersna: TDataSetProvider
+    DataSet = qryPersona
+    Left = 304
+    Top = 200
+  end
+  object prvNombres: TDataSetProvider
+    DataSet = qryConsultarNombre
+    Left = 48
+    Top = 192
+  end
+  object cdsPersona: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'prvPersna'
+    Left = 304
+    Top = 272
+    object cdsPersonaDOCUMENTO: TIntegerField
+      FieldName = 'DOCUMENTO'
+      Required = True
+    end
+    object cdsPersonaTIPO_DOCUMENTO: TStringField
+      FieldName = 'TIPO_DOCUMENTO'
+      Size = 2
+    end
+    object cdsPersonaTIPO_PERSONA: TStringField
+      FieldName = 'TIPO_PERSONA'
+      FixedChar = True
+      Size = 1
+    end
+    object cdsPersonaID_INTERNO: TIntegerField
+      FieldName = 'ID_INTERNO'
+    end
+    object cdsPersonaRFID: TStringField
+      FieldName = 'RFID'
+      Size = 10
+    end
+    object cdsPersonaPRIMER_APELLIDO: TStringField
+      FieldName = 'PRIMER_APELLIDO'
+      Required = True
+      Size = 255
+    end
+    object cdsPersonaSEGUNDO_APELLIDO: TStringField
+      FieldName = 'SEGUNDO_APELLIDO'
+      Size = 255
+    end
+    object cdsPersonaPRIMER_NOMBRE: TStringField
+      FieldName = 'PRIMER_NOMBRE'
+      Required = True
+      Size = 255
+    end
+    object cdsPersonaSEGUNDO_NOMBRE: TStringField
+      FieldName = 'SEGUNDO_NOMBRE'
+      Size = 255
+    end
+    object cdsPersonaCARGO: TStringField
+      FieldName = 'CARGO'
+      Size = 255
+    end
+    object cdsPersonaSEDE: TStringField
+      FieldName = 'SEDE'
+      Size = 25
+    end
+  end
+  object cdsNombres: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'prvNombres'
+    Left = 48
+    Top = 264
+    object cdsNombresPRIMER_NOMBRE: TStringField
+      FieldName = 'PRIMER_NOMBRE'
+      Required = True
+      Size = 255
+    end
+    object cdsNombresSEGUNDO_NOMBRE: TStringField
+      FieldName = 'SEGUNDO_NOMBRE'
+      Size = 255
+    end
+    object cdsNombresPRIMER_APELLIDO: TStringField
+      FieldName = 'PRIMER_APELLIDO'
+      Required = True
+      Size = 255
+    end
+    object cdsNombresSEGUNDO_APELLIDO: TStringField
+      FieldName = 'SEGUNDO_APELLIDO'
+      Size = 255
+    end
+    object cdsNombresDOCUMENTO: TIntegerField
+      FieldName = 'DOCUMENTO'
+      Required = True
+    end
+    object cdsNombresTIPO_DOCUMENTO: TStringField
+      FieldName = 'TIPO_DOCUMENTO'
+      Size = 2
+    end
+    object cdsNombresTIPO_PERSONA: TStringField
+      FieldName = 'TIPO_PERSONA'
+      FixedChar = True
+      Size = 1
+    end
+    object cdsNombresID_INTERNO: TIntegerField
+      FieldName = 'ID_INTERNO'
+    end
+  end
+  object qryST: TUniQuery
     Connection = MySQL
     SQL.Strings = (
       'SELECT * FROM USUARIO_SIN_TIP')
-    Left = 232
-    Top = 128
+    Left = 408
+    Top = 136
   end
-  object qryExternos: TUniQuery
-    SQLInsert.Strings = (
-      
-        'INSERT INTO PERSONAL_EXTERNO (ID_EXTERNO, NOMBRES_EXTERNO, APELL' +
-        'IDOS_EXTERNO, CARGO_EXTERNO, LUGAR_DESTINO_EXTERNO, OTRO_LUGAR_E' +
-        'XTERNOS)'
-      
-        'VALUES (:ID_EXTERNO, :NOMBRES_EXTERNO, :APELLIDOS_EXTERNO, :CARG' +
-        'O_EXTERNO, :LUGAR_DESTINO_EXTERNO, :OTRO_LUGAR_EXTERNOS)')
-    SQLDelete.Strings = (
-      'DELETE FROM PERSONAL_EXTERNO'
-      'WHERE'
-      '  NUM_REGISTRO_EXTERNO = :Old_NUM_REGISTRO_EXTERNO')
-    SQLUpdate.Strings = (
-      'UPDATE PERSONAL_EXTERNO'
-      'SET'
-      
-        '  NUM_REGISTRO_EXTERNO = :NUM_REGISTRO_EXTERNO, ID_EXTERNO = :ID' +
-        '_EXTERNO, NOMBRES_EXTERNO = :NOMBRES_EXTERNO, APELLIDOS_EXTERNO ' +
-        '= :APELLIDOS_EXTERNO, CARGO_EXTERNO = :CARGO_EXTERNO, LUGAR_DEST' +
-        'INO_EXTERNO = :LUGAR_DESTINO_EXTERNO, OTRO_LUGAR_EXTERNOS = :OTR' +
-        'O_LUGAR_EXTERNOS, TIMESTAMP_EXTERNO = :TIMESTAMP_EXTERNO'
-      'WHERE'
-      '  NUM_REGISTRO_EXTERNO = :Old_NUM_REGISTRO_EXTERNO')
-    SQLLock.Strings = (
-      'SELECT * FROM PERSONAL_EXTERNO'
-      'WHERE'
-      '  NUM_REGISTRO_EXTERNO = :Old_NUM_REGISTRO_EXTERNO'
-      'FOR UPDATE')
-    SQLRefresh.Strings = (
-      
-        'SELECT NUM_REGISTRO_EXTERNO, ID_EXTERNO, NOMBRES_EXTERNO, APELLI' +
-        'DOS_EXTERNO, CARGO_EXTERNO, LUGAR_DESTINO_EXTERNO, OTRO_LUGAR_EX' +
-        'TERNOS, TIMESTAMP_EXTERNO FROM PERSONAL_EXTERNO'
-      'WHERE'
-      '  NUM_REGISTRO_EXTERNO = :NUM_REGISTRO_EXTERNO')
-    SQLRecCount.Strings = (
-      'SELECT COUNT(*) FROM PERSONAL_EXTERNO')
+  object prvST: TDataSetProvider
+    DataSet = qryST
+    Left = 408
+    Top = 200
+  end
+  object cdsST: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'prvST'
+    Left = 408
+    Top = 272
+    object cdsSTID_ST: TIntegerField
+      FieldName = 'ID_ST'
+      Required = True
+    end
+    object cdsSTMOTIVO_ST: TStringField
+      FieldName = 'MOTIVO_ST'
+      Required = True
+      Size = 250
+    end
+    object cdsSTESTADO: TStringField
+      FieldName = 'ESTADO'
+      FixedChar = True
+      Size = 1
+    end
+    object cdsSTBLOQUE: TStringField
+      FieldName = 'BLOQUE'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object qryExt: TUniQuery
     Connection = MySQL
     SQL.Strings = (
-      'SELECT * FROM PERSONAL_EXTERNO')
-    Left = 232
-    Top = 208
+      'SELECT * FROM USUARIO_EXTERNO')
+    Left = 192
+    Top = 136
+  end
+  object cdsExt: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'prvExt'
+    Left = 192
+    Top = 272
+    object cdsExtDOCUMENTO_PERSONA: TIntegerField
+      FieldName = 'DOCUMENTO_PERSONA'
+      Required = True
+    end
+    object cdsExtLUGAR_DESTINO_EXT: TStringField
+      FieldName = 'LUGAR_DESTINO_EXT'
+      Size = 45
+    end
+    object cdsExtLUGAR_DEST_OPC: TStringField
+      FieldName = 'LUGAR_DEST_OPC'
+      Size = 45
+    end
+    object cdsExtESTADO_EXTERNO: TStringField
+      FieldName = 'ESTADO_EXTERNO'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object prvExt: TDataSetProvider
+    DataSet = qryExt
+    Left = 192
+    Top = 200
+  end
+  object qryConsultaReiterativos: TUniQuery
+    Connection = MySQL
+    SQL.Strings = (
+      'SELECT COUNT(*) AS C FROM USUARIO_SIN_TIP'
+      
+        'WHERE TIMESTAMP_INGRESO BETWEEN '#39'2019-09-17 1%'#39' AND NOW() AND ID' +
+        '_ST = :id')
+    Left = 560
+    Top = 136
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'id'
+        Value = nil
+      end>
   end
 end

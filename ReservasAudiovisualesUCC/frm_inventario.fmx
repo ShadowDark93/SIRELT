@@ -1,0 +1,290 @@
+object frmInventario: TfrmInventario
+  Left = 0
+  Top = 0
+  BorderStyle = None
+  Caption = 'Form1'
+  ClientHeight = 576
+  ClientWidth = 547
+  Fill.Kind = Solid
+  Position = DesktopCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Label1: TLabel
+    Align = Top
+    StyledSettings = []
+    Margins.Left = 15.000000000000000000
+    Margins.Top = 15.000000000000000000
+    Margins.Right = 15.000000000000000000
+    Position.X = 15.000000000000000000
+    Position.Y = 15.000000000000000000
+    Size.Width = 517.000000000000000000
+    Size.Height = 121.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 30.000000000000000000
+    TextSettings.Font.StyleExt = {00070000000000000004000000}
+    TextSettings.FontColor = claDeepskyblue
+    TextSettings.HorzAlign = Center
+    TextSettings.Trimming = Word
+    Text = 'CONTROL DE INVENTARIOS - SIGEA'
+    TabOrder = 0
+  end
+  object TabControl1: TTabControl
+    Align = Client
+    Margins.Left = 15.000000000000000000
+    Margins.Right = 15.000000000000000000
+    Margins.Bottom = 15.000000000000000000
+    Size.Width = 517.000000000000000000
+    Size.Height = 360.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 1
+    TabOrder = 1
+    TabPosition = PlatformDefault
+    Sizes = (
+      517s
+      334s
+      517s
+      334s)
+    object tabInventario: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 88.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'INVENTARIO'
+      ExplicitSize.cx = 88.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object ListBox1: TListBox
+        Align = Client
+        Size.Width = 517.000000000000000000
+        Size.Height = 334.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        DisableFocusEffect = True
+        ItemIndex = 0
+        Items.Strings = (
+          'CABLES VGA'
+          'CONTROL HITACHI')
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        OnItemClick = ListBox1ItemClick
+        Viewport.Width = 513.000000000000000000
+        Viewport.Height = 330.000000000000000000
+      end
+    end
+    object tabDesc: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 95.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'DESCRIPCION'
+      ExplicitSize.cx = 159.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object EditID_AUDIOVISUAL: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 1
+        Text = '1'
+        Position.X = 16.000000000000000000
+        Position.Y = 32.000000000000000000
+        object LabelID_AUDIOVISUAL: TLabel
+          Position.Y = -16.000000000000000000
+          TextSettings.WordWrap = False
+          Text = 'ID AUDIOVISUAL'
+          TabOrder = 0
+        end
+      end
+      object MemoDESCRIPCION: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        Lines.Strings = (
+          'CABLE VGA 1,5 MTS')
+        Position.X = 16.000000000000000000
+        Position.Y = 80.000000000000000000
+        Size.Width = 473.000000000000000000
+        Size.Height = 105.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Viewport.Width = 469.000000000000000000
+        Viewport.Height = 101.000000000000000000
+      end
+      object EditNOMBRE: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 3
+        Text = 'CABLES VGA'
+        Position.X = 128.000000000000000000
+        Position.Y = 32.000000000000000000
+        Size.Width = 361.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        object LabelNOMBRE: TLabel
+          Position.Y = -16.000000000000000000
+          TextSettings.WordWrap = False
+          Text = 'NOMBRE'
+          TabOrder = 0
+        end
+      end
+      object EditSERIAL: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 4
+        Text = 'N/A'
+        Position.X = 16.000000000000000000
+        Position.Y = 208.000000000000000000
+        Size.Width = 289.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        object LabelSERIAL: TLabel
+          Position.Y = -16.000000000000000000
+          TextSettings.WordWrap = False
+          Text = 'SERIAL'
+          TabOrder = 0
+        end
+      end
+      object EditCANTIDAD: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 5
+        Text = '50'
+        Position.X = 320.000000000000000000
+        Position.Y = 208.000000000000000000
+        Size.Width = 169.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        object LabelCANTIDAD: TLabel
+          Position.Y = -16.000000000000000000
+          TextSettings.WordWrap = False
+          Text = 'CANTIDAD'
+          TabOrder = 0
+        end
+      end
+      object Label2: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 64.000000000000000000
+        TextSettings.WordWrap = False
+        Text = 'DESCRIPCION'
+        TabOrder = 0
+      end
+      object NavigatorBindSourceDB2: TBindNavigator
+        Position.X = 16.000000000000000000
+        Position.Y = 253.000000000000000000
+        Size.Width = 468.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        DataSource = BindSourceDB1
+        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbEdit, nbPost, nbRefresh, nbApplyUpdates]
+        xRadius = 4.000000000000000000
+        yRadius = 4.000000000000000000
+      end
+    end
+  end
+  object GridPanelLayout1: TGridPanelLayout
+    Align = Bottom
+    Margins.Left = 15.000000000000000000
+    Margins.Right = 15.000000000000000000
+    Margins.Bottom = 15.000000000000000000
+    Position.X = 15.000000000000000000
+    Position.Y = 511.000000000000000000
+    Size.Width = 517.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    ColumnCollection = <
+      item
+        Value = 100.000000000000000000
+      end>
+    ControlCollection = <
+      item
+        Column = 0
+        Control = Button1
+        Row = 0
+      end>
+    RowCollection = <
+      item
+        Value = 100.000000000000000000
+      end
+      item
+        SizeStyle = Auto
+      end>
+    object Button1: TButton
+      Align = Right
+      StyledSettings = [Family]
+      Position.X = 437.000000000000000000
+      Size.Width = 80.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'listitembutton'
+      TabOrder = 0
+      Text = 'SALIR'
+      TextSettings.Font.Size = 16.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.FontColor = claRed
+      OnClick = Button1Click
+    end
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = dm.cdsAudiovisuales
+    ScopeMappings = <>
+    Left = 256
+    Top = 272
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+    object LinkControlToField1: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'ID_AUDIOVISUAL'
+      Control = EditID_AUDIOVISUAL
+      Track = False
+    end
+    object LinkControlToField2: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'NOMBRE'
+      Control = EditNOMBRE
+      Track = False
+    end
+    object LinkControlToField3: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'DESCRIPCION'
+      Control = MemoDESCRIPCION
+      Track = False
+    end
+    object LinkControlToField4: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'SERIAL'
+      Control = EditSERIAL
+      Track = False
+    end
+    object LinkControlToField5: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'CANTIDAD'
+      Control = EditCANTIDAD
+      Track = False
+    end
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'NOMBRE'
+      Control = ListBox1
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+  end
+end

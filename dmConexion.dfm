@@ -112,7 +112,7 @@ object dm: Tdm
   object qryEstudiante: TUniQuery
     Connection = MySQL
     SQL.Strings = (
-      'SELECT * FROM ESTUDIANTE')
+      'SELECT * FROM PERSONA')
     Left = 120
     Top = 208
   end
@@ -184,7 +184,6 @@ object dm: Tdm
     Top = 272
   end
   object cdsEstudiantes: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'prvEstudiantes'

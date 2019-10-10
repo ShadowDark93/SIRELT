@@ -6,82 +6,117 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes,
   System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Objects;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Objects, FMX.Layouts, FMX.Effects,
+  FMX.ListBox;
 
 type
-  TForm1 = class(TForm)
+  TfrmConsultasUCC = class(TForm)
     Image1: TImage;
-    Label1: TLabel;
     Label2: TLabel;
-    txtID: TEdit;
     txtCedula: TEdit;
-    btnQryId: TButton;
-    btnQryDocumento: TButton;
     Image3: TImage;
-    Image4: TImage;
-    Button3: TButton;
-    procedure btnQryDocumentoClick(Sender: TObject);
-    procedure btnQryIdClick(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
+    GridPanelLayout2: TGridPanelLayout;
+    btnEntrada: TButton;
+    btnSalida: TButton;
+    StyleBook1: TStyleBook;
+    Label1: TLabel;
+    procedure btnExternoClick(Sender: TObject);
+    procedure txtCedulaKeyDown(Sender: TObject; var Key: Word;
+      var KeyChar: Char; Shift: TShiftState);
+    procedure btnEntradaClick(Sender: TObject);
+    procedure btnSalidaClick(Sender: TObject);
   private
-    { Private declarations }
+    procedure buscarPorCedula;
   public
     { Public declarations }
   end;
 
 var
-  Form1: TForm1;
+  frmConsultasUCC: TfrmConsultasUCC;
+  intentos, int: integer;
 
 implementation
 
 {$R *.fmx}
 
-uses u_ConsultarEstudiante, dmConexion, frm_ingresoSinTip, frm_personalExterno,
-  u_externos, u_sinTIP;
+uses u_ConsultarPersona, dmConexion, frm_ingresoSinTip, frm_personalExterno,
+  u_externos, u_sinTIP, frm_Index, u_consultasReiterativos;
 
-procedure TForm1.btnQryIdClick(Sender: TObject);
+procedure TfrmConsultasUCC.btnSalidaClick(Sender: TObject);
 begin
-  try
-    u_ConsultarEstudiante.consultarEstudianteId(txtID.Text);
-    if dm.qryEstudiante.RecordCount > 0 then
-    begin
-      u_sinTIP.consultarPersonaCodigo(txtID.Text);
-      ShowMessage('Estudiante activo');
-      frmPersonalST.ShowModal;
-    end
-    else
-    begin
-      ShowMessage('Estudiante Inactivo');
-      frmExterno.ShowModal;
-    end;
-  except
-    ShowMessage('Debe ingresar el ID de estudiante');
-  end;
+  // se realiza la salida de la persona por cedula
+
+  if u_sinTIP.registrarSalidaPersona(txtCedula.Text) = true then
+  begin
+    {
+      ShowMessage('Gracias por su respuesta ' + u_ConsultarPersona.nombre1 + ' ' +
+      u_ConsultarPersona.nombre2 + '.' + #13#10 +
+      'Recuerda que el uso de la TIP es de uso obligatorio.' + #13#10 +
+      'Gestion Tecnologica de la Sede Ibague - Espinal.');
+    }
+    txtCedula.Text := '';
+    frmConsultasUCC.Close;
+    frmIndex.Show;
+  end
+  else if u_sinTIP.registrarSalidaPersona(txtCedula.Text) = false then
+    ShowMessage('No tiene entradas existentes actualmente.');
+  if int = 1 then
+  begin
+    frmConsultasUCC.Close;
+    int := 0;
+
+  end
+  else
+    inc(int);
+
 end;
 
-procedure TForm1.btnQryDocumentoClick(Sender: TObject);
+procedure TfrmConsultasUCC.btnEntradaClick(Sender: TObject);
 begin
-  try
-    u_ConsultarEstudiante.consultarEstudianteCedula(txtCedula.Text);
-    if dm.qryEstudiante.RecordCount > 0 then
-    begin
-      u_sinTIP.consultarPersonaDocumento(txtCedula.Text);
-      ShowMessage('Estudiante activo');
-      frmPersonalST.ShowModal;
-    end
-    else
-    begin
-      ShowMessage('Estudiante Inactivo');
-      frmExterno.ShowModal;
-    end;
-  except
-    ShowMessage('Debe ingresar el Documento para ingresar');
-  end;
+  buscarPorCedula;
 end;
 
-procedure TForm1.Button3Click(Sender: TObject);
+procedure TfrmConsultasUCC.btnExternoClick(Sender: TObject);
 begin
   frmExterno.Show;
+end;
+
+procedure TfrmConsultasUCC.txtCedulaKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  if KeyChar = #13 then
+  begin
+    buscarPorCedula;
+  end;
+end;
+
+procedure TfrmConsultasUCC.buscarPorCedula;
+begin
+  if u_ConsultarPersona.consultarPorCedula(txtCedula.Text) = true then
+  begin
+    frmpersonalst.Show;
+    if u_consultasReiterativos.buscarReiterativos(txtCedula.Text) > 4 then
+    begin
+      ShowMessage('La cantidad de ingresos sin carnet son ' +
+        IntToStr(u_consultasReiterativos.cantidad));
+    end;
+    u_sinTIP.documento := txtCedula.Text;
+    txtCedula.Text := '';
+    frmConsultasUCC.Close;
+
+  end
+  else if u_ConsultarPersona.consultarPorCedula(txtCedula.Text) = false then
+  begin
+    ShowMessage('Por favor valide su numero de documento');
+    inc(intentos);
+    if intentos = 2 then
+    begin
+      frmExterno.Show;
+      intentos := 0;
+      txtCedula.Text := '';
+      self.Close;
+    end;
+  end;
 end;
 
 end.

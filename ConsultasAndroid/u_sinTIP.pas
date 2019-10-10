@@ -2,60 +2,66 @@ unit u_sinTIP;
 
 interface
 
-var
-  documento, nombre1, nombre2, apellido1, apellido2: string;
+uses sysutils;
 
-procedure consultarPersonaDocumento(documento: string);
-procedure consultarPersonaCodigo(codigo: string);
-procedure ingresarRegistriSinTip(motivoST: string);
+var
+  documento, tipoPersona, nombre1, nombre2, apellido1, apellido2, cargo, sede,
+    bloque: String;
+
+procedure ingresarRegistriSinTip(documento, motivoST: string);
+function registrarSalidaPersona(idPersona: string): boolean;
 
 implementation
 
 uses dmConexion;
 
-procedure consultarPersonaDocumento(documento: string);
+procedure ingresarRegistriSinTip(documento, motivoST: string);
 begin
-  with dm.qryConsultarNombre do
+  with dm.cdsST do
   begin
+    Active := true;
     Open;
-    sql.Clear;
-    sql.Add('SELECT * FROM ESTUDIANTE WHERE Documento =' + documento);
-    ExecSQL;
-    documento := FieldByName('Documento').AsString;
-    nombre1 := FieldByName('PRIMER_NOMBRE').AsString;
-    nombre2 := FieldByName('SEGUNDO_NOMBRE').AsString;
-    apellido1 := FieldByName('PRIMER_APELLIDO').AsString;
-    apellido2 := FieldByName('SEGUNDO_APELLIDO').AsString;
+    Append;
+    dm.cdsSTID_ST.Value := StrToInt(documento);
+    dm.cdsSTMOTIVO_ST.Value := motivoST;
+    dm.cdsSTESTADO.Value := '1';
+    dm.cdsSTBLOQUE.Value := bloque;
+    Post;
+    ApplyUpdates(3);
+    Active := false;
+    close;
   end;
 end;
 
-procedure consultarPersonaCodigo(codigo: string);
+function registrarSalidaPersona(idPersona: string): boolean;
 begin
-  with dm.qryConsultarNombre do
-  begin
-    Open;
-    sql.Clear;
-    sql.Add('SELECT * FROM ESTUDIANTE WHERE ID_ESTUDIANTE =' + codigo);
-    ExecSQL;
-    documento := FieldByName('Documento').AsString;
-    nombre1 := FieldByName('PRIMER_NOMBRE').AsString;
-    nombre2 := FieldByName('SEGUNDO_NOMBRE').AsString;
-    apellido1 := FieldByName('PRIMER_APELLIDO').AsString;
-    apellido2 := FieldByName('SEGUNDO_APELLIDO').AsString;
-  end;
-end;
 
-procedure ingresarRegistriSinTip(motivoST: string);
-begin
-  with dm.qrySinTip do
+  with dm.cdsST do
   begin
+    Active := true;
     Open;
-    sql.Clear;
-    sql.Add('INSERT INTO USUARIO_SIN_TIP (ID_ST, MOTIVO_ST) VALUES (:ID_ST, :MOTIVO_ST)');
-    Params.ParamByName('ID_ST').Value := documento;
-    Params.ParamByName('MOTIVO_ST').Value := motivoST;
-    ExecSQL;
+    Filter := 'ESTADO = 1 AND ID_ST =' + idPersona;
+    Filtered := true;
+    if dm.cdsST.RecordCount > 0 then
+    begin
+      Edit;
+      dm.cdsSTESTADO.Value := '0';
+      Post;
+      ApplyUpdates(0);
+      result := true;
+      Filtered := false;
+      Active := false;
+      close;
+    end
+    else
+    begin
+      Filtered := false;
+      Active := false;
+      result := false;
+      close;
+    end;
   end;
+
 end;
 
 end.

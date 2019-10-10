@@ -1,0 +1,64 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Switch1: TSwitch
+    IsChecked = False
+    Position.X = 136.000000000000000000
+    Position.Y = 64.000000000000000000
+    TabOrder = 0
+    OnSwitch = Switch1Switch
+  end
+  object StringGridBindSourceDB1: TStringGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 80.000000000000000000
+    Position.Y = 128.000000000000000000
+    Size.Width = 401.000000000000000000
+    Size.Height = 113.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Viewport.Width = 381.000000000000000000
+    Viewport.Height = 72.000000000000000000
+  end
+  object NavigatorBindSourceDB1: TBindNavigator
+    Position.X = 200.000000000000000000
+    Position.Y = 232.000000000000000000
+    Size.Width = 241.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    DataSource = BindSourceDB1
+    xRadius = 4.000000000000000000
+    yRadius = 4.000000000000000000
+  end
+  object DataSource1: TDataSource
+    DataSet = dm.qryPersona
+    Left = 376
+    Top = 48
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSource = DataSource1
+    ScopeMappings = <>
+    Left = 304
+    Top = 224
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      GridControl = StringGridBindSourceDB1
+      Columns = <>
+    end
+  end
+end

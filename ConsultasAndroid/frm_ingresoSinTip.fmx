@@ -5,6 +5,7 @@ object frmPersonalST: TfrmPersonalST
   ClientHeight = 595
   ClientWidth = 467
   Fill.Kind = Solid
+  Position = DesktopCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -4068,24 +4069,25 @@ object frmPersonalST: TfrmPersonalST
     Margins.Right = 25.000000000000000000
     Margins.Bottom = 25.000000000000000000
     Position.X = 25.000000000000000000
-    Position.Y = 122.000000000000000000
+    Position.Y = 98.000000000000000000
     Size.Width = 417.000000000000000000
-    Size.Height = 153.000000000000000000
+    Size.Height = 143.000000000000000000
     Size.PlatformDefault = False
   end
   object cmbMotivoST: TComboBox
     Align = Top
     Items.Strings = (
-      'NO TRAJO'
       'NO TIENE'
-      'TIP DA'#209'ADA')
-    ItemIndex = 1
+      'TIP DA'#209'ADA'
+      'SIN ACTIVACION'
+      '')
+    ItemIndex = 0
     Margins.Left = 25.000000000000000000
     Margins.Top = 10.000000000000000000
     Margins.Right = 25.000000000000000000
     Margins.Bottom = 20.000000000000000000
     Position.X = 25.000000000000000000
-    Position.Y = 362.000000000000000000
+    Position.Y = 397.000000000000000000
     Size.Width = 417.000000000000000000
     Size.Height = 36.000000000000000000
     Size.PlatformDefault = False
@@ -4099,12 +4101,13 @@ object frmPersonalST: TfrmPersonalST
     Margins.Right = 25.000000000000000000
     Margins.Bottom = 10.000000000000000000
     Position.X = 25.000000000000000000
-    Position.Y = 310.000000000000000000
+    Position.Y = 276.000000000000000000
     Size.Width = 417.000000000000000000
-    Size.Height = 32.000000000000000000
+    Size.Height = 101.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 14.000000000000000000
     TextSettings.Font.StyleExt = {00070000000000000004000000}
+    TextSettings.Trimming = Word
     Text = 'lblNombrePersona'
     TabOrder = 3
   end
@@ -4115,7 +4118,7 @@ object frmPersonalST: TfrmPersonalST
     Margins.Right = 100.000000000000000000
     Margins.Bottom = 25.000000000000000000
     Position.X = 100.000000000000000000
-    Position.Y = 443.000000000000000000
+    Position.Y = 478.000000000000000000
     Size.Width = 267.000000000000000000
     Size.Height = 55.000000000000000000
     Size.PlatformDefault = False
@@ -4132,7 +4135,7 @@ object frmPersonalST: TfrmPersonalST
     Position.X = 25.000000000000000000
     Position.Y = 20.000000000000000000
     Size.Width = 417.000000000000000000
-    Size.Height = 77.000000000000000000
+    Size.Height = 53.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 20.000000000000000000
     TextSettings.Font.StyleExt = {00070000000000000004000000}

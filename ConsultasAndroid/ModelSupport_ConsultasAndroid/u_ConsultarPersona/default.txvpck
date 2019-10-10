@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="apu696628i44lt0xl_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="delphi:e_class:src:ConsultasAndroid:u_ConsultarPersona.@unitclass">
+      <property name="$shortcutReference" value="true" />
+      <reference referencedUin="delphi:e_field:src:ConsultasAndroid:u_ConsultarPersona.@unitclass.documento" />
+      <reference referencedUin="delphi:e_field:src:ConsultasAndroid:u_ConsultarPersona.@unitclass.tipoDocumento" />
+      <reference referencedUin="delphi:e_field:src:ConsultasAndroid:u_ConsultarPersona.@unitclass.tipoPersona" />
+      <reference referencedUin="delphi:e_field:src:ConsultasAndroid:u_ConsultarPersona.@unitclass.nombre1" />
+      <reference referencedUin="delphi:e_field:src:ConsultasAndroid:u_ConsultarPersona.@unitclass.nombre2" />
+      <reference referencedUin="delphi:e_field:src:ConsultasAndroid:u_ConsultarPersona.@unitclass.apellido1" />
+      <reference referencedUin="delphi:e_field:src:ConsultasAndroid:u_ConsultarPersona.@unitclass.apellido2" />
+      <reference referencedUin="delphi:e_field:src:ConsultasAndroid:u_ConsultarPersona.@unitclass.cargo" />
+      <reference referencedUin="delphi:e_field:src:ConsultasAndroid:u_ConsultarPersona.@unitclass.sede" />
+      <reference referencedUin="delphi:e_method:src:ConsultasAndroid:u_ConsultarPersona.@unitclass.consultarPorCedula(System.string)" />
+      <reference referencedUin="delphi:e_method:src:ConsultasAndroid:u_ConsultarPersona.@unitclass.limpiarVariables()" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:ConsultasAndroid:u_ConsultarPersona.TSingleton">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="295,366,142,111" />
+      <reference referencedUin="delphi:e_method:src:ConsultasAndroid:u_ConsultarPersona.TSingleton.Create()">
+        <property name="bounds" value="295,366,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_field:src:ConsultasAndroid:u_ConsultarPersona.TSingleton.FInstance">
+        <property name="bounds" value="295,366,0,0" />
+      </reference>
+      <reference referencedUin="delphi:e_method:src:ConsultasAndroid:u_ConsultarPersona.TSingleton.GetInstance()">
+        <property name="bounds" value="295,366,0,0" />
+      </reference>
+      <reference referencedUin="delphi:l_ast:src:ConsultasAndroid:u_ConsultarPersona.TSingleton.FInstance" />
+    </reference>
+    <reference referencedUin="design:node:::q36l2pt2ntdyr0ydh_n">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="495,366,175,75" />
+      <reference referencedUin="design:link:::2tp18c92otdup8cpi_l:q36l2pt2ntdyr0ydh_n">
+        <property name="bounds" value="295,366,0,0" />
+        <reference referencedUin="label:@supplierRole:design:link:::2tp18c92otdup8cpi_l:q36l2pt2ntdyr0ydh_n" />
+      </reference>
+    </reference>
+  </view>
+</nodeSet>

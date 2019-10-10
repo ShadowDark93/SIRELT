@@ -31,7 +31,8 @@ implementation
 
 {$R *.fmx}
 
-uses dmConexion, u_sinTIP, frm_consultas;
+uses dmConexion, u_sinTIP, frm_consultas, frm_Index, u_ConsultarPersona,
+  u_consultasReiterativos;
 
 procedure TfrmPersonalST.Button1Click(Sender: TObject);
 var
@@ -39,14 +40,20 @@ var
 begin
   motivo := cmbMotivoST.Selected.Text;
   try
-    u_sinTIP.ingresarRegistriSinTip(motivo);
-    ShowMessage('Gracias por su respuesta ' + u_sinTIP.nombre1 + ' ' +
-      u_sinTIP.nombre2 + '.' + #13#10 +
+    u_sinTIP.ingresarRegistriSinTip(u_sinTIP.documento, motivo);
+    {
+      ShowMessage('Gracias por su respuesta ' + u_ConsultarPersona.nombre1 + ' ' +
+      u_ConsultarPersona.nombre2 + '.' + #13#10 +
       'Recuerda que el uso de la TIP es de uso obligatorio.' + #13#10 +
       'Gestion Tecnologica de la Sede Ibague - Espinal.');
+    }
+    u_ConsultarPersona.limpiarVariables;
     frmPersonalST.Close;
+    frmIndex.Show;
   except
-    ShowMessage('Por favor intente de nuevo');
+    on E: Exception do
+      ShowMessage(E.ClassName + ' error raised, with message : ' + E.Message);
+    { ShowMessage('Por favor intente de nuevo'); }
   end;
 end;
 
@@ -57,8 +64,10 @@ end;
 
 procedure TfrmPersonalST.FormShow(Sender: TObject);
 begin
-  lblNombrePersona.Text := 'Cuentanos ' + u_sinTIP.nombre1 + ' ' +
-    u_sinTIP.nombre2 + ' por que no tienes tu TIP?';
+  lblNombrePersona.Text := 'Nombres: ' + u_ConsultarPersona.nombre1 + ' ' +
+    u_ConsultarPersona.nombre2 + #13#10 + 'Apellidos: ' +
+    u_ConsultarPersona.apellido1 + ' ' + u_ConsultarPersona.apellido2 + #13#10 +
+    'Facultad: ' + u_ConsultarPersona.cargo + ' sede ' + u_ConsultarPersona.sede;
 end;
 
 end.
