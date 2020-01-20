@@ -16,8 +16,9 @@ type
     GridPanelLayout1: TGridPanelLayout;
     btnPrestamos: TButton;
     btnReservas: TButton;
-    procedure btnInventarioClick(Sender: TObject);
     procedure btnPrestamosClick(Sender: TObject);
+    procedure btnReservasClick(Sender: TObject);
+    procedure btnInventarioClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,23 +32,36 @@ implementation
 
 {$R *.fmx}
 
-uses frm_inventario, frm_prestamos;
+uses frm_inventario, frm_prestamos, frm_reservas;
 
 procedure TfrmIndex.btnInventarioClick(Sender: TObject);
 begin
-  if TSingleton.GetInstance <> nil then
+  if frmInventario = nil then
   begin
-    frmInventario:=TfrmInventario.Create(Application);
-    frmInventario.Show;
+    frmInventario := TfrmInventario.Create(Application);
+    frmInventario.ShowModal;
   end
   else
-    frmInventario.Show;
+  begin
+    frmInventario.ShowModal;
+  end;
 end;
 
 procedure TfrmIndex.btnPrestamosClick(Sender: TObject);
 begin
   frmPrestamos := TfrmPrestamos.Create(Application);
   frmPrestamos.ShowModal;
+end;
+
+procedure TfrmIndex.btnReservasClick(Sender: TObject);
+begin
+  if frmReservas <> nil then
+  begin
+    frmReservas := TfrmReservas.Create(Application);
+    frmReservas.ShowModal;
+  end
+  else
+    frmReservas.ShowModal;
 end;
 
 end.

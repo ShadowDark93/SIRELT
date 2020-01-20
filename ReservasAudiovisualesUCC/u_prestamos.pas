@@ -2,92 +2,66 @@ unit u_prestamos;
 
 interface
 
-type
-  TSingleton = class
-  private
-    constructor create;
-  public
-    class function GetInstance: TSingleton;
-    procedure crearInstancia;
-  strict private
-    class var FInstance: TSingleton;
-  end;
-
-procedure buscarPersonaCedula(id: string);
-procedure buscarPersonaCodigo(cod: string);
-
 var
-  cedula, codigo, nombre1, nombre2, apellido1, apellido2, cargo, sede: string;
-  _instancia: TSingleton;
+  cedula, tipo_doc, apellido1, apellido2, nombre1, nombre2, codigo,
+    tipo_persona, cargo, sede: string;
+  // Prestamos
+  prCedula, prNombre1, prNombre2, prApellido1, prApellido2: string;
+
+procedure buscarInterno(cedula: string);
+procedure buscarExterno(cedula: string);
+procedure cargarInventarioPrestamo(idProducto: string);
 
 implementation
 
 uses DataModule;
 
-procedure buscarPersonaCedula(id: string);
+procedure buscarInterno(cedula: string);
 begin
-  with dm.cdsPersonas do
+  with dm do
   begin
-    Active := true;
-    Filter := 'DOCUMENTO= ' + id;
-    Filtered := true;
-    cedula := dm.cdsPersonasDOCUMENTO.asstring;
-    codigo := dm.cdsPersonasID_INTERNO.asstring;
-    nombre1 := dm.cdsPersonasPRIMER_NOMBRE.asstring;
-    nombre2 := dm.cdsPersonasSEGUNDO_NOMBRE.asstring;
-    apellido1 := dm.cdsPersonasPRIMER_APELLIDO.asstring;
-    apellido2 := dm.cdsPersonasSEGUNDO_APELLIDO.asstring;
-    cargo := dm.cdsPersonasCARGO.asstring;
-    sede := dm.cdsPersonasSEDE.asstring;
+    cdsInternos.Active := true;
+    cdsInternos.Filter := 'ID_PERSONA= ' + cedula;
+    cdsInternos.Filtered := true;
+    cedula := cdsInternosID_PERSONA.AsString;
+    tipo_doc := cdsInternosTIPO_DOCUMENTO.AsString;
+    apellido1 := cdsInternosPRIMER_APELLIDO.AsString;
+    apellido2 := cdsInternosSEGUNDO_APELLIDO.AsString;
+    nombre1 := cdsInternosPRIMER_NOMBRE.AsString;
+    nombre2 := cdsInternosSEGUNDO_NOMBRE.AsString;
+    codigo := cdsInternosID_INTERNO.AsString;
+    tipo_persona := cdsInternosDESC_TIPO_PERSONA.AsString;
+    cargo := cdsInternosCARGO_INTERNO.AsString;
+    sede := cdsInternosSEDE_INTERNO.AsString;
   end;
 end;
 
-procedure buscarPersonaCodigo(cod: string);
+procedure buscarExterno(cedula: string);
 begin
-  with dm.cdsPersonas do
+  with dm do
   begin
-    Active := true;
-    Filter := 'ID_INTERNO= ' + cod;
-    Filtered := true;
-    cedula := dm.cdsPersonasDOCUMENTO.asstring;
-    codigo := dm.cdsPersonasID_INTERNO.asstring;
-    nombre1 := dm.cdsPersonasPRIMER_NOMBRE.asstring;
-    nombre2 := dm.cdsPersonasSEGUNDO_NOMBRE.asstring;
-    apellido1 := dm.cdsPersonasPRIMER_APELLIDO.asstring;
-    apellido2 := dm.cdsPersonasSEGUNDO_APELLIDO.asstring;
-    cargo := dm.cdsPersonasCARGO.asstring;
-    sede := dm.cdsPersonasSEDE.asstring;
+    cdsExternos.Active := true;
+    cdsExternos.Filter := 'ID_PERSONA_EXTERNA= ' + cedula;
+    cdsExternos.Filtered := true;
+    cedula := cdsExternosID_PERSONA_EXTERNA.AsString;
+    tipo_doc := cdsExternosTIPO_DOCUMENTO.AsString;
+    tipo_persona := cdsExternosDESC_TIPO_PERSONA.AsString;
+    apellido1 := cdsExternosPRIMER_APELLIDO.AsString;
+    apellido2 := cdsExternosSEGUNDO_APELLIDO.AsString;
+    nombre1 := cdsExternosPRIMER_NOMBRE.AsString;
+    nombre2 := cdsExternosSEGUNDO_NOMBRE.AsString;
+
   end;
 end;
 
-{ TSingleton }
-
-procedure TSingleton.crearInstancia;
-
+procedure cargarInventarioPrestamo(idProducto: string);
 begin
-  inherited;
-
+  with dm do
+  begin
+    cdsInventario.Filtered := false;
+    cdsInventario.Filter := 'ID_PRODUCTO=' + idProducto;
+    cdsInventario.Filtered := true;
+  end;
 end;
-
-constructor TSingleton.create;
-begin
-
-end;
-
-class function TSingleton.GetInstance: TSingleton;
-begin
-  if _instancia = nil then
-  _instancia:=TSingleton.create;
-  Result:=_instancia;
-end;
-
-initialization
-
-_instancia := nil;
-
-finalization
-
-if _instancia <> nil then
-  _instancia.Free;
 
 end.
