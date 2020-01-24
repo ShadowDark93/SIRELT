@@ -23,7 +23,7 @@ Coordinates=563,245,81,33
 Coordinates=322,251,142,159
 
 []
-Coordinates=188,1,81,123
+Coordinates=746,624,142,123
 
 [qryInternos]
 Coordinates=474,251,120,231
@@ -114,9 +114,6 @@ Coordinates=573,661,120,231
 
 [cdsInternosDESC_TIPO_PERSONA]
 Coordinates=557,624,187,33
-
-[qryMultiusos]
-Coordinates=746,624,142,123
 
 [cdsInternosCARGO_INTERNO]
 Coordinates=1227,105,163,33

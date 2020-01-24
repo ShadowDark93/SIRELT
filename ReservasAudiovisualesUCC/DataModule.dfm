@@ -129,8 +129,33 @@ object dm: Tdm
   object cdsProducto: TClientDataSet
     Active = True
     Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'ID_PRODUCTO'
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOMBRE_PRODUCTO'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 150
+      end
+      item
+        Name = 'DESCRIPCION_PRODUCTO'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 450
+      end>
+    IndexDefs = <
+      item
+        Name = 'DEFAULT_ORDER'
+      end
+      item
+        Name = 'CHANGEINDEX'
+      end>
     Params = <>
     ProviderName = 'prvProducto'
+    StoreDefs = True
     Left = 136
     Top = 224
   end
@@ -156,6 +181,7 @@ object dm: Tdm
     Top = 160
   end
   object cdsExternos: TClientDataSet
+    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -302,30 +328,6 @@ object dm: Tdm
       FieldName = 'SEDE_INTERNO'
       Size = 25
     end
-  end
-  object qryMultiusos: TUniQuery
-    Connection = conexion
-    SQL.Strings = (
-      
-        'SELECT p.NOMBRE_PRODUCTO, p.DESCRIPCION_PRODUCTO, i.SERIAL_INV, ' +
-        'i.CANTIDAD_INV '
-      'FROM INVENTARIOS i INNER JOIN PRODUCTOS p '
-      'ON p.`ID_PRODUCTO` = i.`ID_PRODUCTO`')
-    Active = True
-    Left = 640
-    Top = 96
-  end
-  object prvMultiusos: TDataSetProvider
-    DataSet = qryMultiusos
-    Left = 640
-    Top = 160
-  end
-  object cdsMultiusos: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'prvMultiusos'
-    Left = 640
-    Top = 224
   end
   object qryPrestamos: TUniQuery
     Connection = conexion

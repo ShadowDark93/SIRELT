@@ -48,9 +48,6 @@ type
     cdsInternosDESC_TIPO_PERSONA: TStringField;
     cdsInternosCARGO_INTERNO: TStringField;
     cdsInternosSEDE_INTERNO: TStringField;
-    qryMultiusos: TUniQuery;
-    prvMultiusos: TDataSetProvider;
-    cdsMultiusos: TClientDataSet;
     qryPrestamos: TUniQuery;
     prvPrestamos: TDataSetProvider;
     cdsPrestamos: TClientDataSet;

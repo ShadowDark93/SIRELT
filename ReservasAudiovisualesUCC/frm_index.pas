@@ -39,18 +39,18 @@ begin
   if frmInventario = nil then
   begin
     frmInventario := TfrmInventario.Create(Application);
-    frmInventario.ShowModal;
+    frmInventario.Show;
   end
   else
   begin
-    frmInventario.ShowModal;
+    frmInventario.Show;
   end;
 end;
 
 procedure TfrmIndex.btnPrestamosClick(Sender: TObject);
 begin
   frmPrestamos := TfrmPrestamos.Create(Application);
-  frmPrestamos.ShowModal;
+  frmPrestamos.Show;
 end;
 
 procedure TfrmIndex.btnReservasClick(Sender: TObject);
@@ -58,10 +58,10 @@ begin
   if frmReservas <> nil then
   begin
     frmReservas := TfrmReservas.Create(Application);
-    frmReservas.ShowModal;
+    frmReservas.Show;
   end
   else
-    frmReservas.ShowModal;
+    frmReservas.Show;
 end;
 
 end.

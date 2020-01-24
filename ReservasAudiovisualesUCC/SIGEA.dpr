@@ -17,5 +17,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmIndex, frmIndex);
   Application.CreateForm(Tdm, dm);
+  Application.CreateForm(TfrmPrestamos, frmPrestamos);
   Application.Run;
 end.

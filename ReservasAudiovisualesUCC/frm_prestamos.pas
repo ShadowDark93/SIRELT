@@ -9,7 +9,9 @@ uses
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, FMX.ListBox, FMX.Objects,
   FMX.Layouts, Data.Bind.EngExt, FMX.Bind.DBEngExt, System.Rtti,
   System.Bindings.Outputs, FMX.Bind.Editors, Data.Bind.Components,
-  Data.Bind.DBScope, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid;
+  Data.Bind.DBScope, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid,
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
+  FMX.ListView;
 
 type
   TfrmPrestamos = class(TForm)
@@ -27,33 +29,39 @@ type
     rbExterno: TRadioButton;
     Panel2: TPanel;
     lbProductos: TListBox;
-    lbDescripcion: TListBox;
     tabPrestamosActivos: TTabControl;
     tabPrestAct: TTabItem;
     tabDetPrestamo: TTabItem;
     lbPrestamosActivos: TListBox;
     Panel3: TPanel;
     Image1: TImage;
-    Label2: TLabel;
     Label3: TLabel;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    LinkListControlToField1: TLinkListControlToField;
     StringGrid1: TStringGrid;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Label2: TLabel;
+    Label4: TLabel;
+    BindSourceDB2: TBindSourceDB;
+    LinkListControlToField2: TLinkListControlToField;
+    ListView1: TListView;
     procedure btnBuscarClick(Sender: TObject);
     procedure lbPrestamosActivosItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
     procedure lbProductosItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
-    procedure FormShow(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
     procedure cargarNombres;
-    procedure cargarProductos;
     procedure cargarElementos;
   end;
 
 var
   frmPrestamos: TfrmPrestamos;
+
 
 implementation
 
@@ -104,30 +112,6 @@ begin
     u_prestamos.nombre2 + #13#10 + 'Apellidos: ' + u_prestamos.apellido1 + ' ' +
     u_prestamos.apellido2 + #13#10 + 'Cargo: ' + u_prestamos.cargo + #13#10 +
     'Sede: ' + u_prestamos.sede;
-end;
-
-procedure TfrmPrestamos.cargarProductos;
-begin
-  with dm do
-  begin
-    while not cdsProducto.Eof do
-    begin
-      lbProductos.Items.Add(cdsProducto.Fields[1].asstring);
-      cdsProducto.Next;
-    end;
-  end;
-end;
-
-procedure TfrmPrestamos.FormCreate(Sender: TObject);
-begin
-  cargarNombres;
-  cargarProductos;
-end;
-
-procedure TfrmPrestamos.FormShow(Sender: TObject);
-begin
-  cargarNombres;
-  cargarProductos;
 end;
 
 procedure TfrmPrestamos.lbPrestamosActivosItemClick(const Sender
