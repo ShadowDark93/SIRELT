@@ -1,15 +1,17 @@
 object frmPrestamos: TfrmPrestamos
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu]
   BorderStyle = Single
   Caption = 'Form1'
-  ClientHeight = 733
+  ClientHeight = 706
   ClientWidth = 583
   Fill.Kind = Solid
   Position = DesktopCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object Label1: TLabel
     Align = Top
@@ -21,7 +23,7 @@ object frmPrestamos: TfrmPrestamos
     Position.X = 15.000000000000000000
     Position.Y = 15.000000000000000000
     Size.Width = 553.000000000000000000
-    Size.Height = 82.000000000000000000
+    Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 30.000000000000000000
     TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -37,16 +39,16 @@ object frmPrestamos: TfrmPrestamos
     Margins.Right = 15.000000000000000000
     Margins.Bottom = 15.000000000000000000
     Size.Width = 553.000000000000000000
-    Size.Height = 606.000000000000000000
+    Size.Height = 611.000000000000000000
     Size.PlatformDefault = False
     TabIndex = 0
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
       553s
-      580s
+      585s
       553s
-      580s)
+      585s)
     object TabItem1: TTabItem
       CustomIcon = <
         item
@@ -58,6 +60,7 @@ object frmPrestamos: TfrmPrestamos
       StyleLookup = ''
       TabOrder = 0
       Text = 'PRESTAMOS'
+      OnClick = TabItem1Click
       ExplicitSize.cx = 69.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
       object GroupBox1: TGroupBox
@@ -138,7 +141,7 @@ object frmPrestamos: TfrmPrestamos
         Margins.Right = 15.000000000000000000
         Margins.Bottom = 15.000000000000000000
         Size.Width = 523.000000000000000000
-        Size.Height = 435.000000000000000000
+        Size.Height = 440.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         object txtIdInventario: TLabel
@@ -267,7 +270,7 @@ object frmPrestamos: TfrmPrestamos
         object Panel3: TPanel
           Align = Client
           Size.Width = 523.000000000000000000
-          Size.Height = 179.000000000000000000
+          Size.Height = 184.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
           object StringGrid1: TStringGrid
@@ -297,7 +300,7 @@ object frmPrestamos: TfrmPrestamos
             TabOrder = 2
             ColumnCollection = <
               item
-                Value = 50.000184955703110000
+                Value = 50.000184955703100000
               end
               item
                 Value = 49.999815044296890000
@@ -446,16 +449,16 @@ object frmPrestamos: TfrmPrestamos
         Margins.Right = 15.000000000000000000
         Margins.Bottom = 15.000000000000000000
         Size.Width = 523.000000000000000000
-        Size.Height = 550.000000000000000000
+        Size.Height = 555.000000000000000000
         Size.PlatformDefault = False
         TabIndex = 0
         TabOrder = 0
         TabPosition = PlatformDefault
         Sizes = (
           523s
-          524s
+          529s
           523s
-          524s)
+          529s)
         object tabPrestAct: TTabItem
           CustomIcon = <
             item
@@ -477,9 +480,10 @@ object frmPrestamos: TfrmPrestamos
             FooterAppearanceClassName = 'TListHeaderObjects'
             Align = Client
             Size.Width = 523.000000000000000000
-            Size.Height = 524.000000000000000000
+            Size.Height = 529.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
+            OnItemClick = lvPrestamosItemClick
             SearchVisible = True
             PullToRefresh = True
           end
@@ -497,6 +501,191 @@ object frmPrestamos: TfrmPrestamos
           Text = 'DETALLE PRESTAMO'
           ExplicitSize.cx = 128.000000000000000000
           ExplicitSize.cy = 26.000000000000000000
+          object EditID_PRESTAMO: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Scale
+            TabOrder = 0
+            Position.X = 16.000000000000000000
+            Position.Y = 32.305328369140630000
+            Size.Width = 121.000000000000000000
+            Size.Height = 22.209930419921880000
+            Size.PlatformDefault = False
+            object LabelID_PRESTAMO: TLabel
+              Position.Y = -16.000000000000000000
+              TextSettings.WordWrap = False
+              Text = 'ID PRESTAMO'
+              TabOrder = 0
+            end
+          end
+          object EditID_PERSONA: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Scale
+            TabOrder = 1
+            Position.X = 160.000000000000000000
+            Position.Y = 32.305328369140630000
+            Size.Width = 169.000000000000000000
+            Size.Height = 22.209930419921880000
+            Size.PlatformDefault = False
+            object LabelID_PERSONA: TLabel
+              Position.Y = -16.000000000000000000
+              TextSettings.WordWrap = False
+              Text = 'DOCUMENTO '
+              TabOrder = 0
+            end
+          end
+          object EditID_RESERVA: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Scale
+            TabOrder = 2
+            Position.X = 352.000000000000000000
+            Position.Y = 32.305328369140630000
+            Size.Width = 153.000000000000000000
+            Size.Height = 22.209930419921880000
+            Size.PlatformDefault = False
+            object LabelID_RESERVA: TLabel
+              Position.Y = -16.000000000000000000
+              TextSettings.WordWrap = False
+              Text = 'ID RESERVA'
+              TabOrder = 0
+            end
+          end
+          object EditID_AUDIOVISUAL: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Scale
+            TabOrder = 3
+            Position.X = 16.000000000000000000
+            Position.Y = 80.763381958007810000
+            Size.Width = 121.000000000000000000
+            Size.Height = 22.209945678710940000
+            Size.PlatformDefault = False
+            object LabelID_AUDIOVISUAL: TLabel
+              Position.Y = -16.000000000000000000
+              TextSettings.WordWrap = False
+              Text = 'ID AUDIOVISUAL'
+              TabOrder = 0
+            end
+          end
+          object EditTIMESTAMP_PRESTAMO: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Scale
+            TabOrder = 4
+            Position.X = 160.000000000000000000
+            Position.Y = 80.763381958007810000
+            Size.Width = 169.000000000000000000
+            Size.Height = 22.209945678710940000
+            Size.PlatformDefault = False
+            object LabelTIMESTAMP_PRESTAMO: TLabel
+              Position.Y = -16.000000000000000000
+              Size.Width = 169.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.WordWrap = False
+              Text = 'HORA-FECHA ASIGNACION'
+              TabOrder = 0
+            end
+          end
+          object EditLUGAR_PRESTAMO: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Scale
+            TabOrder = 5
+            Position.X = 352.000000000000000000
+            Position.Y = 80.763381958007810000
+            Size.Width = 153.000000000000000000
+            Size.Height = 22.209945678710940000
+            Size.PlatformDefault = False
+            object LabelLUGAR_PRESTAMO: TLabel
+              Position.Y = -16.000000000000000000
+              TextSettings.WordWrap = False
+              Text = 'LUGAR ASIGNADO'
+              TabOrder = 0
+            end
+          end
+          object EditOBSERVACIONES_ENTREGA: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Scale
+            TabOrder = 6
+            TextSettings.VertAlign = Leading
+            Position.X = 16.000000000000000000
+            Position.Y = 266.519195556640600000
+            Size.Width = 489.000000000000000000
+            Size.Height = 114.078155517578100000
+            Size.PlatformDefault = False
+            object LabelOBSERVACIONES_ENTREGA: TLabel
+              Position.Y = -16.000000000000000000
+              Size.Width = 489.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.WordWrap = False
+              Text = 'OBSERVACIONES DE ENTREGA'
+              TabOrder = 0
+            end
+          end
+          object EditOBSERVACIONES_PRESTAMO: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Scale
+            TabOrder = 7
+            Position.X = 18.000000000000000000
+            Position.Y = 129.221313476562500000
+            Size.Width = 489.000000000000000000
+            Size.Height = 65.620147705078130000
+            Size.PlatformDefault = False
+            object LabelOBSERVACIONES_PRESTAMO: TLabel
+              Position.Y = -16.000000000000000000
+              Size.Width = 489.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.WordWrap = False
+              Text = 'OBSERVACIONES_PRESTAMO'
+              TabOrder = 0
+            end
+          end
+          object Image2: TImage
+            MultiResBitmap.Height = 48
+            MultiResBitmap.Width = 48
+            MultiResBitmap = <
+              item
+                Width = 48
+                Height = 48
+                PNG = {
+                  89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+                  87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                  0167494441546843EDD6CF4A02511406F073470A22C145D42297656D03135AF5
+                  063D47D6B60877150456D4A64DF6162DA29730C96D4D7F6821894B23A6BF4E0C
+                  F39985365E66EADEAB9DDF66BEB3513FCEDC198931C6B412B8B6992DD82E223D
+                  566F90BECBCFC791A2DBBA1C432272C9CD95B2533B180359B81A4590D84E1FDA
+                  1B180329DBC0DAEA0A926F776F1FC9F775034DAE4B9BA5A55460112337D02404
+                  AD77DB84D1053CDD4A185FC0E395406CD31305827001DD7ABE80D47BC0A9DD51
+                  A3F18EA92537374C89C11F3F425AFD354607B723983A3BCBA63A7E91D4060612
+                  A324AC18A69663FB99EA2F9F3D437978B3E8B416FE2F89D4064C10690326E302
+                  BA7101DDA49E42858524A5C78730A951AC38B47C52C114F129A4FAC77B3249B9
+                  EFFC1FB750717112C957BEB846FA5D33D31348BECCD115521FBFC8426D4015DE
+                  00229F81BFC46740373E03BAF119D04DAA40B9FA84A4CEF9BD83144CEA163241
+                  DFDE428C31A613D10722BA86002031CCD20000000049454E44AE426082}
+                FileName = 
+                  'F:\Documents\GitHub\SIRELT\ReservasAudiovisualesUCC\Imagenes\ico' +
+                  'ns8_Save_48px.png'
+              end>
+            Align = Scale
+            Position.X = 224.000000000000000000
+            Position.Y = 417.950317382812500000
+            Size.Width = 74.000000000000000000
+            Size.Height = 75.715301513671870000
+            Size.PlatformDefault = False
+            OnClick = Image2Click
+          end
+          object BindNavigator1: TBindNavigator
+            Align = Scale
+            Position.X = 18.000000000000000000
+            Position.Y = 201.908340454101600000
+            Size.Width = 489.000000000000000000
+            Size.Height = 41.391616821289060000
+            Size.PlatformDefault = False
+            TabOrder = 9
+            DataSource = BindSourceDB2
+            VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
+            xRadius = 4.000000000000000000
+            yRadius = 4.000000000000000000
+          end
         end
       end
     end
@@ -504,8 +693,8 @@ object frmPrestamos: TfrmPrestamos
   object BindSourceDB1: TBindSourceDB
     DataSet = dm.cdsVistaProductos
     ScopeMappings = <>
-    Left = 384
-    Top = 168
+    Left = 400
+    Top = 128
   end
   object BindingsList1: TBindingsList
     Methods = <>
@@ -586,6 +775,62 @@ object frmPrestamos: TfrmPrestamos
       FillExpressions = <>
       FillHeaderExpressions = <>
       FillBreakGroups = <>
+    end
+    object LinkControlToFieldID_PRESTAMO: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      FieldName = 'ID_PRESTAMO'
+      Control = EditID_PRESTAMO
+      Track = False
+    end
+    object LinkControlToFieldID_PERSONA: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      FieldName = 'ID_PERSONA'
+      Control = EditID_PERSONA
+      Track = False
+    end
+    object LinkControlToFieldID_RESERVA: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      FieldName = 'ID_RESERVA'
+      Control = EditID_RESERVA
+      Track = False
+    end
+    object LinkControlToFieldID_AUDIOVISUAL: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      FieldName = 'ID_AUDIOVISUAL'
+      Control = EditID_AUDIOVISUAL
+      Track = False
+    end
+    object LinkControlToFieldTIMESTAMP_PRESTAMO: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      FieldName = 'TIMESTAMP_PRESTAMO'
+      Control = EditTIMESTAMP_PRESTAMO
+      Track = False
+    end
+    object LinkControlToFieldLUGAR_PRESTAMO: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      FieldName = 'LUGAR_PRESTAMO'
+      Control = EditLUGAR_PRESTAMO
+      Track = False
+    end
+    object LinkControlToFieldOBSERVACIONES_PRESTAMO: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      FieldName = 'OBSERVACIONES_PRESTAMO'
+      Control = EditOBSERVACIONES_PRESTAMO
+      Track = False
+    end
+    object LinkControlToFieldOBSERVACIONES_ENTREGA: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      FieldName = 'OBSERVACIONES_ENTREGA'
+      Control = EditOBSERVACIONES_ENTREGA
+      Track = False
     end
   end
   object BindSourceDB2: TBindSourceDB

@@ -50,8 +50,7 @@ object dm: Tdm
       
         'FROM PERSONA p INNER JOIN PERSONAL_INTERNO i INNER JOIN TIPO_PER' +
         'SONA tp ON p.DOCUMENTO = i.ID_PERSONA AND tp.ID_TIPO = i.ID_TIPO' +
-        '_PERSONA'
-      'WHERE i.ID_PERSONA = 1104706314')
+        '_PERSONA')
     Left = 480
     Top = 96
   end

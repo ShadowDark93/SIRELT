@@ -50,7 +50,6 @@ begin
     apellido2 := cdsExternosSEGUNDO_APELLIDO.AsString;
     nombre1 := cdsExternosPRIMER_NOMBRE.AsString;
     nombre2 := cdsExternosSEGUNDO_NOMBRE.AsString;
-
   end;
 end;
 

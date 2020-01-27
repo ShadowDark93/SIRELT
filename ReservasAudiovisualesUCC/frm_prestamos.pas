@@ -11,7 +11,8 @@ uses
   System.Bindings.Outputs, FMX.Bind.Editors, Data.Bind.Components,
   Data.Bind.DBScope, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid,
   FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
-  FMX.ListView, System.ImageList, FMX.ImgList, FMX.Bind.Grid, Data.Bind.Grid;
+  FMX.ListView, System.ImageList, FMX.ImgList, FMX.Bind.Grid, Data.Bind.Grid,
+  Data.Bind.Controls, FMX.Bind.Navigator;
 
 type
   TfrmPrestamos = class(TForm)
@@ -49,6 +50,32 @@ type
     GridPanelLayout1: TGridPanelLayout;
     lvPrestamos: TListView;
     LinkListControlToField2: TLinkListControlToField;
+    EditID_PRESTAMO: TEdit;
+    LabelID_PRESTAMO: TLabel;
+    LinkControlToFieldID_PRESTAMO: TLinkControlToField;
+    EditID_PERSONA: TEdit;
+    LabelID_PERSONA: TLabel;
+    LinkControlToFieldID_PERSONA: TLinkControlToField;
+    EditID_RESERVA: TEdit;
+    LabelID_RESERVA: TLabel;
+    LinkControlToFieldID_RESERVA: TLinkControlToField;
+    EditID_AUDIOVISUAL: TEdit;
+    LabelID_AUDIOVISUAL: TLabel;
+    LinkControlToFieldID_AUDIOVISUAL: TLinkControlToField;
+    EditTIMESTAMP_PRESTAMO: TEdit;
+    LabelTIMESTAMP_PRESTAMO: TLabel;
+    LinkControlToFieldTIMESTAMP_PRESTAMO: TLinkControlToField;
+    EditLUGAR_PRESTAMO: TEdit;
+    LabelLUGAR_PRESTAMO: TLabel;
+    LinkControlToFieldLUGAR_PRESTAMO: TLinkControlToField;
+    EditOBSERVACIONES_PRESTAMO: TEdit;
+    LabelOBSERVACIONES_PRESTAMO: TLabel;
+    LinkControlToFieldOBSERVACIONES_PRESTAMO: TLinkControlToField;
+    BindNavigator1: TBindNavigator;
+    EditOBSERVACIONES_ENTREGA: TEdit;
+    LabelOBSERVACIONES_ENTREGA: TLabel;
+    LinkControlToFieldOBSERVACIONES_ENTREGA: TLinkControlToField;
+    Image2: TImage;
     procedure btnBuscarClick(Sender: TObject);
     procedure lbPrestamosActivosItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
@@ -59,10 +86,16 @@ type
     procedure Image1Click(Sender: TObject);
     procedure TabItem2Click(Sender: TObject);
     procedure tabPrestActClick(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure lvPrestamosItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
+    procedure TabItem1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
     procedure cargarNombres;
+    procedure filtrarPrestamosActivos;
   end;
 
 var
@@ -106,10 +139,43 @@ begin
     'Sede: ' + u_prestamos.sede;
 end;
 
+procedure TfrmPrestamos.filtrarPrestamosActivos;
+begin
+  with dm.cdsPrestamos do
+  begin
+    Refresh;
+    Filtered := false;
+    Filter := 'ESTADO_PRESTAMO=1';
+    Filtered := true;
+  end;
+end;
+
+procedure TfrmPrestamos.FormCreate(Sender: TObject);
+begin
+  TabControl1.ActiveTab := TabItem1;
+end;
+
 procedure TfrmPrestamos.Image1Click(Sender: TObject);
 begin
   dm.cdsPrestamos.ApplyUpdates(3);
   dm.cdsPrestamos.Refresh;
+  ShowMessage('Se han registrado los elementos de prestamo correctamente.');
+end;
+
+procedure TfrmPrestamos.Image2Click(Sender: TObject);
+begin
+  with dm do
+  begin
+    cdsPrestamos.Edit;
+    cdsPrestamos.FieldByName('OBSERVACIONES_ENTREGA').Value :=
+      EditOBSERVACIONES_ENTREGA.text;
+    cdsPrestamos.FieldByName('ESTADO_PRESTAMO').Value := '0';
+    cdsPrestamos.post;
+    cdsPrestamos.ApplyUpdates(3);
+    ShowMessage('Se ha registrado la entrega correctamente.');
+    tabPrestamosActivos.ActiveTab := tabPrestAct;
+    filtrarPrestamosActivos;
+  end;
 end;
 
 procedure TfrmPrestamos.Image3Click(Sender: TObject);
@@ -135,12 +201,18 @@ begin
     cdsPrestamos.FieldByName('LUGAR_PRESTAMO').Value := txtLugarPrestamo.text;
     cdsPrestamos.FieldByName('OBSERVACIONES_PRESTAMO').Value :=
       txtLugarPrestamo.text;
-    cdsPrestamos.Post;
+    cdsPrestamos.post;
   end;
 end;
 
 procedure TfrmPrestamos.lbPrestamosActivosItemClick(const Sender
   : TCustomListBox; const Item: TListBoxItem);
+begin
+  tabPrestamosActivos.ActiveTab := tabDetPrestamo;
+end;
+
+procedure TfrmPrestamos.lvPrestamosItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
 begin
   tabPrestamosActivos.ActiveTab := tabDetPrestamo;
 end;
@@ -156,15 +228,15 @@ begin
     ShowMessage('Debe tener una observación del prestamo');
 end;
 
+procedure TfrmPrestamos.TabItem1Click(Sender: TObject);
+begin
+  dm.cdsPrestamos.Filtered := false;
+end;
+
 procedure TfrmPrestamos.TabItem2Click(Sender: TObject);
 begin
-  with dm.cdsPrestamos do
-  begin
-    Refresh;
-    Filtered := false;
-    Filter := 'ESTADO_PRESTAMO=1';
-    Filtered := true;
-  end;
+  filtrarPrestamosActivos;
+  tabPrestamosActivos.ActiveTab := tabPrestAct;
 end;
 
 procedure TfrmPrestamos.tabPrestActClick(Sender: TObject);
