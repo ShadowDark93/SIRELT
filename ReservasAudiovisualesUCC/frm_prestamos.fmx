@@ -3,7 +3,7 @@ object frmPrestamos: TfrmPrestamos
   Top = 0
   BorderStyle = Single
   Caption = 'Form1'
-  ClientHeight = 686
+  ClientHeight = 733
   ClientWidth = 583
   Fill.Kind = Solid
   Position = DesktopCenter
@@ -37,16 +37,16 @@ object frmPrestamos: TfrmPrestamos
     Margins.Right = 15.000000000000000000
     Margins.Bottom = 15.000000000000000000
     Size.Width = 553.000000000000000000
-    Size.Height = 559.000000000000000000
+    Size.Height = 606.000000000000000000
     Size.PlatformDefault = False
     TabIndex = 0
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
       553s
-      533s
+      580s
       553s
-      533s)
+      580s)
     object TabItem1: TTabItem
       CustomIcon = <
         item
@@ -87,11 +87,11 @@ object frmPrestamos: TfrmPrestamos
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Scale
           TabOrder = 2
-          Position.X = 96.000000000000000000
-          Position.Y = 30.000000000000000000
+          Position.X = 104.000000000000000000
+          Position.Y = 22.000000000000000000
           Hint = 'Digite la C'#233'dula'
-          Size.Width = 113.000015258789100000
-          Size.Height = 22.000000000000000000
+          Size.Width = 137.000000000000000000
+          Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
           TextPrompt = '  Digite la C'#233'dula '
           ParentShowHint = False
@@ -99,10 +99,10 @@ object frmPrestamos: TfrmPrestamos
         end
         object btnBuscar: TButton
           Align = Scale
-          Position.X = 112.000000000000000000
-          Position.Y = 62.000000000000000000
-          Size.Width = 80.000000000000000000
-          Size.Height = 22.000000000000000000
+          Position.X = 118.000000000000000000
+          Position.Y = 56.000000000000000000
+          Size.Width = 105.000000000000000000
+          Size.Height = 28.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 3
           Text = 'Buscar'
@@ -124,9 +124,9 @@ object frmPrestamos: TfrmPrestamos
           Margins.Top = 15.000000000000000000
           Margins.Right = 15.000000000000000000
           Margins.Bottom = 15.000000000000000000
-          Position.X = 224.000000000000000000
+          Position.X = 256.000000000000000000
           Position.Y = 15.000000000000000000
-          Size.Width = 284.000000000000000000
+          Size.Width = 252.000000000000000000
           Size.Height = 70.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 4
@@ -138,96 +138,17 @@ object frmPrestamos: TfrmPrestamos
         Margins.Right = 15.000000000000000000
         Margins.Bottom = 15.000000000000000000
         Size.Width = 523.000000000000000000
-        Size.Height = 388.000000000000000000
+        Size.Height = 435.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
-        object Image2: TImage
-          MultiResBitmap.Height = 48
-          MultiResBitmap.Width = 48
-          MultiResBitmap = <
-            item
-              Width = 48
-              Height = 48
-              PNG = {
-                89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
-                87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-                08C2494441546843ED990B7094571580CFFFFFFBC8EEE6B99B843C2009100249
-                78E4013A3885A108B544B460219D2935B5A3A21392A90C50B51631A58E33451C
-                68E24C75869A54292989741CDB9A024ADB54110221118C104280F06ADE2F36D9
-                ECE3FFBDF7FFCF3EEEFEBBD96CD0199DF2CD64F69CB39BBDE7DC7BFE73EF3D0B
-                0F79C8671C0E5F1F883D7BF6F0D71D86A51C2FAC20EA3291937204E0662AEF22
-                12DC024E6C23433691BFC674FEFEF98A8A0A11DF9D360F1440C98BFB5339C155
-                0E2E6E0B2700EB70089CE0BAA59184C3BC2056BE51F1FDBB680E9B6905F0F40F
-                7E16A7D3F03F7170E3DFD182498FE6E961051B18E17549D054D4546C1F42EB94
-                093B80E75EDAB74972D97F091A5D229AFE23882075F312575AFDCAAE63689A12
-                530E60EBD65F69ED09C3AF01CF7D174D0C06BD0E72E6A4C3BCF45498618E83B8
-                A848E0055E7E4F74893030320A3D8343D07EF30EB475DE04DB845D7ECF1F4994
-                AA3234D6EDE4F970A26952A614C0333BF6993446A827E2E38AC54B6C94091E5B
-                5E08050B3241A3D1A075729C4E27B4B477C2A9B3ADD03D3088562FE4C97E5F1C
-                83E2DFEDDF654553504206402A8CE6BA18F9073297456892D112671F5B5E008F
-                E42F94E5E9208A227CD2F24FF8D3274DE02041F92201BC3B76397D435D5DB10B
-                4D0111F03528B357AE7F8D44B9055599689311B63E59044BE6CF058157D2643A
-                701C07E9C933202B2D95A45517D81D0E7C479ED92C9D6538BAE5E3131FA02920
-                93AE40C94BFB8A790EDE465526C962866F7D6D9D9C3AFE0CD987A0B9EF3CF96B
-                8601DB008C3A46657B94360A2C1116C88F2F80C2F84288D1C5C8765F0647EFC3
-                A1630DF069FF005A28564904E3936FEE7DE11D34A8081AC0733FFC6982A4D15D
-                21629C6251F2FDF92D1B21CA68448B42CF7837D45FAF83A6DE73204964F12781
-                CEFAB284A5B069F6664834CC40ABC288750C0E1E7E0786EF33A9DFAFE3B905BF
-                AED8D9873A43D0F51779ED8FC98BC7799AE725EBD7AA9C3F479CDEDDB41BCEF6
-                3485749E423F433FBBFBDC6E79B57CA1A959F295B5A0119867CA32218A2FA2AC
-                22E0334077589760AD1140E7F9A62F7DA110F249A5F1A5E15603FCE6CA1BE094
-                A654F1185C920BCEF69E85B4C874483626A355596541E0E06AD71DB4D03419CB
-                5BF268D1A1D68F4EDC479387802BC0F36299EF0E1B6D32C1CA8245A8299CE939
-                036F5FAB25D522F4AC076389390F169BD9EFA5AC20635962A351A3980C9CC895
-                A1C2A00A60F3E6A3E41CE6FA3AAA32B4CEFB96CA81894179E61FC4F9ECB86C28
-                CD2D050DAF2EC11A4180D5CBF250532067A7127A6844D583CA60CAEAFA3CC9AC
-                54542142A785C21C3675EA3B8F82CD65432D7CF22CF9B063D14ED0F13AB4A8A1
-                E9AAD37A83D380308B9E7851F5A00A40E2C4475194C926C703DFD9EFB3F5C1E9
-                9ED3A8850F75BE2CB78C9979BA92B5D78E9095F59650EA7CCE9C34D414785E60
-                7CA3A802E0802B445126332D052585F37DA14B65309658F2023BDF71442E08E7
-                7BD9AA9439D39308321227855E011241164A3229F11694142E0D5C4249CDACC8
-                5928A9C98ECD866DB9DB54395FDF59071FDC5636DB8B03FF905FDD2427B26393
-                33D27C143DA802703A1CDE9A4630C744A1A4D03DDE8312CB9AD435F0F2D2BDB0
-                2163235ABCD099DFB198CD793AF36F751C86F7BADE430BD9106DBD282958FCC6
-                E69DAC6F1455001ABB361245193D79887D1926C7057F56A77C11B6CC7B86A61F
-                096083FCE7863A5F9E5BAE4A9B231D6FC1F1DBC7D1A23044AA9B2F061DFB903B
-                350E3622822A00ABC9CA1C2FA8530C7EE91FA58B86A7E63EC57C8EAE4251DA97
-                6141EC82A069E3EFFC745105A077E894131862B3B3178FD88858941446ED2370
-                F0D201B08BECE78AE714C34EBFB4A11C2525D8376D7C89D37B4E2E32E37E636B
-                9C5AC6378A3A85B4DA7B28CA0C0CB3FF9318A1BE49B60DB6C1BE9657557B8386
-                F7A61F4D9BEAF66A783F88F3948488049414FAFDC61635AC6F145500649C7694
-                64EEF6F5A3A440733A105747AEC2FED69F07DCE0A8F335ED35F0E1DD5368094C
-                5E7C3E4A0AF77AD8B189B3F474CCA00A800CC614E38E2EB6E3914702A047E240
-                B88318778DA3C5ED7C7548E7798E97BFDB978EDBDE031D8593B873287A5005C0
-                493C33D2BFC805DCF7BA171F110F2B9357A2A68606F18BD6FD72105EE73FC477
-                83B32A791598F566D480DCCE9CF22DCD175174A966411580B53DED0C39EC7A42
-                B7D91D70E172076A0A4FA46F840821023535348883170F901DB6764ACE1B0403
-                7C35E309D414E898340837B411365B3B1E7A05E44BB424FC165599534DADF205
-                DC8D99548B3252DBE9B207E3F2D065B2C336A0161C8113E4EF8AD579AB9BD3E5
-                82BF34B5A0A6400E736F066A4506F44014F92A0758275085DEC16168BCC01E21
-                169A179252C9D6FF70A1CF5231D94372CDB96851686CBE08FD4323A851ACE312
-                2F55A1C210F046D6DA787CB46045D10C32C0E7D004D7EF7C2A770F627C2EF399
-                319930D334135AFB5BE51B5638E8053D94E694C28A24DA0FF672F35E0FD4367C
-                0422B9CEBB91405B55F3F20BBF479521685B65E1EAF57F1524C737C83CC9DB37
-                4DA14BD76EC0E279B3C118E16D87A698526055CA2A924E1CDC18BDC10C1C082D
-                D91BD6CD5A472E33DB20232A03AD0A74D65FAF7F1726980DCC7547B0C1A60B7F
-                3B19B09537E9FA076BAB7C73E3E31017CD1C99647CDB2ADDE3DD3038A19C9BE2
-                F4B19064489AB4AD425B8FB4ADC276EA1EA0ADE2E6D91FBD5AC9F1EC7DD46434
-                C0B3EBD7C09C99AAC3E1B4E8BC7D176AFE789264BADF2628C181EA57766D472D
-                20213B735949DF3EAEB30C2F22A166A3091CA4BC359332472F36E9C989E4A614
-                BC1A4D06DD5FFEFCF766A83BD948D2C6DB95A3903DA47EEC4AC6D6B6B6BA496F
-                4F532A21E5E507F5A3B113B5E4E3DE7332628E8E82B5CB0B207FFEDCB09ABB74
-                024E9C6E963B72FE88201D8B19D23F5D59F9BCA7120663CA359036796F3A4D95
-                E1B4D78D0665B31B23A9114E7B7DAC3DE37BA19ABA6EC22EE2FF6B3F70847C06
-                FC69F9F8445BCE236B0F093C181CDC589E6FF76E5AD09F98B45005827673CDDE
-                1D17D03A65C25E015FFE6F7FE4F367929F59DD57AC415256FE2B3FB33EE4219F
-                6D00FE0D52434FFC1A9B820A0000000049454E44AE426082}
-              FileName = 
-                'G:\Documents\GitHub\SIRELT\imagenes\icons8_Checked_Radio_Button_' +
-                '48px.png'
-            end>
-          Position.X = 472.000000000000000000
-          Position.Y = 192.000000000000000000
+        object txtIdInventario: TLabel
+          Position.X = 488.000000000000000000
+          Position.Y = 16.000000000000000000
+          Size.Width = 24.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = '1'
+          TabOrder = 3
         end
         object Panel2: TPanel
           Align = Top
@@ -238,49 +159,29 @@ object frmPrestamos: TfrmPrestamos
           Position.X = 15.000000000000000000
           Position.Y = 15.000000000000000000
           Size.Width = 493.000000000000000000
-          Size.Height = 153.000000000000000000
+          Size.Height = 226.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
-          object lbProductos: TListBox
-            Align = Left
-            Cursor = crHandPoint
-            Margins.Left = 5.000000000000000000
-            Margins.Top = 5.000000000000000000
-            Margins.Right = 5.000000000000000000
-            Margins.Bottom = 5.000000000000000000
-            Position.X = 5.000000000000000000
-            Position.Y = 5.000000000000000000
-            Size.Width = 220.000000000000000000
-            Size.Height = 143.000000000000000000
+          object lvProductos: TListView
+            ItemAppearanceClassName = 'TListItemAppearance'
+            ItemEditAppearanceClassName = 'TListItemDeleteAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
+            AlternatingColors = True
+            ItemIndex = 1
+            Align = Client
+            Size.Width = 443.000000000000000000
+            Size.Height = 164.000000000000000000
             Size.PlatformDefault = False
-            StyleLookup = 'lbProductosStyle1'
             TabOrder = 0
-            DisableFocusEffect = True
-            ItemIndex = 0
-            Items.Strings = (
-              'CONTROL HITACHI'
-              'CABLE VGA'
-              'CABLE HDMI'
-              'CONTROL EPSON'
-              'CONVERTIDOR HDMI A VGA')
-            DefaultItemStyles.ItemStyle = 'listboxitemstyle'
-            DefaultItemStyles.GroupHeaderStyle = ''
-            DefaultItemStyles.GroupFooterStyle = ''
-            OnItemClick = lbProductosItemClick
-            Viewport.Width = 216.000000000000000000
-            Viewport.Height = 139.000000000000000000
-            object Label3: TLabel
-              Align = Scale
-              Position.X = 78015.890625000000000000
-              Position.Y = -1314.019531250000000000
-              Size.Width = 72791.609375000000000000
-              Size.Height = 1015.378784179688000000
-              Size.PlatformDefault = False
-              Text = 'CANTIDAD DISPONIBLE'
-              TabOrder = 0
-            end
+            ItemAppearance.FooterHeight = 1
+            ItemAppearanceObjects.FooterObjects.Text.TextColor = claYellowgreen
+            OnItemClick = lvProductosItemClick
+            SearchVisible = True
+            PullToRefresh = True
+            NativeOptions = [Indexed]
           end
-          object Image1: TImage
+          object Image4: TImage
             MultiResBitmap.Height = 48
             MultiResBitmap.Width = 48
             MultiResBitmap = <
@@ -290,73 +191,83 @@ object frmPrestamos: TfrmPrestamos
                 PNG = {
                   89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
                   87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-                  04D9494441546843ED99DF6F145514C7CFBDB3D3E54725B6826697A6B1D24245
-                  4D2076FB13A3C6684C44230AF5C184E883FA4030F81798F4D117856C3426C627
-                  63B011102D50F1471321ECB6B61045DA865ACA16EA764B2946636DBB3B73BD77
-                  F7ECCF3BB333BBDD6925F4D3B473CE99C9F47BEE3D73EEFC801556B8C321B85D
-                  148C311A98EC6F204C7F8C00F301235BF999AB7077926BFCC82106E46705C84F
-                  3E8F6F8010A2E3BEA2595402C16BC12AA690FDFC24AF727763226A8F28C07515
-                  D8677A4CF7B756B74E60B8608A4AE04CE84C854B2DEBE0A3FD063F851BC345C2
-                  E6F99F8FDDF3EE77B7D76CFF3311B34FC1099C0BF7B6D305E607956CC05069D0
-                  20C2147D5F8BB7E508466C613B817ED6AF2E4C687E4AE14D0C3903631FBABCAE
-                  030DA481579935B612E889F494BBB5354728C0331872169D75AF5256EDDEE6D9
-                  F60F464CE19AF273F2F265F7EAE8EAAE25132FA0E4D9397DBE4BFC6F8C986299
-                  40E5DA99F7F9091F4777E920F04465F9CC7BE89992B78402D7FB5E21941D4677
-                  5960A0EFCE77619B26703674D6CBA83AA42AB00E43CBC58C46620FB679DAA6D0
-                  CFC2B4841455ED584AF19159437D824AAABB3AD096309C814038703F59A023A0
-                  820B438E3210390FDD574F43A3C7074F573F85D13451168D5242EADABC6D210C
-                  A5309C01C2C85B4B2D9EF19FDE701F7C3FFE23EE49A31255A5E0325C7FA4047A
-                  588F0B34F23ABA8EF2DBF425E80E25C427E99DEC83A9D91BE8A5E1A5F25A27EB
-                  54D04D21255036B1B61114B80F5DC718885C80E3A3DF883B598CF0EB8E2FF32F
-                  D7EE827BD718DEA578AB266B1E453B859400A5EC49341D4388EFBEFA6DD6C80B
-                  F1BB36BD08F5955B302243745DD266740D34E0D611CE4F15275E4018F8D04C21
-                  25C074AD0ECD9223C49F1A2B4E7C1C029BD14A6150428A074D4BF2F46E894B37
-                  87E054CEC8F32732D859F39C3DF11CBEA049DAA404A2102D47332FDF857E804F
-                  2E7E1A6F8356FC72E3227C357ADCF0827D64FDC318B14601E52E3453C8D7007F
-                  6845CB14D1AB45BB13A3297A78BE2484F8AEB1139278DB65638194005F34FE46
-                  D310D1A385F824F124782F173D3D97C19941383176324B7CA1659389069AA44D
-                  4A40D7B5309A86881E2DA65E8C62122150F4F4CC9910237FECF7AFF9B349FAC5
-                  4331659389C25C923629010ACA309AA688D113259095444639FD3AED4CD9F0B3
-                  49DAA40418850B68E6450879E181E7E3259124594E5D574A5736390CE0368541
-                  09911E342D79E89EADD05EB7071492BEEF13C24B593699304A256D52C7E10268
-                  301C1C2340AB3164C9C8AD51F872E428682C869104A5289B24FCDABCD2B2B1A5
-                  96CF667A6A39D20CF0037402E473746D5157B109F66C7E296B264A295E40A872
-                  3857BC404A40C028FB806FFE4D78F6A8BD3B9D44A9C5F3C5755627B183E86661
-                  BA689D9BE8F55302FBD0B5CDE0CDE1782995A2E63338D8EC6D3A807616A60904
-                  A783EBF4797D9812FBF7460EF1474C8DD6EFD8B0C37081352C2141F3FAE6BF08
-                  73BD83EEB2C17BDADB66E205A609085AAA1ABFE06DE92374970176C8EA656FDE
-                  0404E3DEF1FD7C148EA1BB74E8EC6893A7C9B2022C136827EDDA9C32B7972F4D
-                  A731E43C8997BB7B454BC7882996B7CE496EEBD7EB99FCDF3E705896502EAD9E
-                  A64EBEB06CE14BA29F0F97F83CB448C439D82177ACACBE50F18282672093DBF6
-                  235F2EE2063060FC99B5227104DCE2BF8E7C665D61853B1B80FF0074ACFC1529
-                  C6679C0000000049454E44AE426082}
+                  03A1494441546843ED99CB4F135114C6CFBD4C21F82092A88892E84ED4044900
+                  7706DD6803022D282E5CF88A606230FA17105CBAF19146031A57C6A8082D8F9A
+                  1A171A57264A7C26BA72E18B87891215B401EEF10C9C54EBEDB4D342E918F925
+                  CD9CEF4CDB9CEF3EE6DE99810516F8CF117C9C15ADADADF2F1E667E520702BA2
+                  A890081B295D3473760625E01D1D5E09818F84920FCA9E970CB4B5B5A999B3A9
+                  332B03EE2E6F9101D842FFB28F3E6B386D13F51E415C0563D217AC097EE064D2
+                  A464A0BABF3A5F4C18A7A8598F80841C4EA78682304A6C37A8237BBC3DA39CB5
+                  4DD2066ABA3D8D28940F40AEE0D49CA0140C4B89C7FABD3D5D9CB2856D0365ED
+                  4DAEC2E5433E90B289536901112E0C7D5A7962A0B963825371B16560CFCD3D4B
+                  C65CE12E097207A7D20C86C28BC677DFDD79778C13962434E0BEEDCE91E1EC3B
+                  547C25A7E60705F727737FBA4355A130676222F9688911CE3E33EFC59B48D896
+                  15CE39CDCA92B83DB0CB5FB797BE729D6586C0DDF126B6A581DA40ED6A35255F
+                  514BE4712A43A8CF2E95B5C1DFE01FE144149606AABB3C978584C32C93A2CFE3
+                  E7289A9A8097A3E4A02B537BB03E7094651431E7409DBF6E1D39DBCF32E308A1
+                  0E55DDAA5FCB328A980626019AE90C2D8E4E41BAA45431D71FCD40E5BD4A0395
+                  38C8D231288403B41E65B18CA019583CBA6C8B9450C0D231504DABC78D893296
+                  11340312C5760E1D070AD46AD30C50579573E8388412151C46D02EA355DD9E97
+                  52C0269696585D2A53C5D62556C18BFE864009AB69F421245421878E836EDFB4
+                  DAF42104B08443C741C52EE53082DE0371566727A21920BEF1D171D0E8D06AD3
+                  8710CA410E1D0715ABD5A60D17DAC4DDA24D5C03CB9498EBCDDC6FB093B6D68D
+                  2CA6D17A400878C2A1E3A02134C061047D0809BCC7A1E31028B4DA3403154F4B
+                  1FD26AFC96A583506F82DEC02316113403E6E33E21F01A4BE780F23ACD586415
+                  413360427BEFB30AD40F961947291877A138C7328A9806FAEAFA8605882B2C33
+                  8E947829E97B62F76D779E11CE7E4D3FCFE8DE885AFFA391A58A7B3DBD3117D8
+                  983D6012AA0A7D257F2759660C6AFDE356C59B581A30A145E306B5C14596F30E
+                  029E4FF4B037AE0193DC899C16FAA7B9DDFCDB02BBCB9F96261C01B6769E4E7E
+                  B89BB0074C3A1B3BBF0F8FACDA4533AA835369C37CBC3E3852506BA77893A4F7
+                  FE4E7BC161AB07FEA4AF3E70135D53EBA9AD7CB4BB8AFBE8DB16E62B269AAC2E
+                  89C5C9166F32ABBBAF7FF625DFDF58BE6695903FFD05055FD2F59A758105FE6F
+                  007E015370458EA008E84D0000000049454E44AE426082}
                 FileName = 
                   'F:\Documents\GitHub\SIRELT\ReservasAudiovisualesUCC\Imagenes\ico' +
-                  'ns8_Checked_48px.png'
+                  'ns8_Plus_48px.png'
               end>
             Align = MostRight
             Position.X = 443.000000000000000000
+            Position.Y = 62.000000000000000000
             Size.Width = 50.000000000000000000
-            Size.Height = 153.000000000000000000
+            Size.Height = 164.000000000000000000
             Size.PlatformDefault = False
+            OnClick = Image4Click
           end
-          object ListView1: TListView
-            ItemAppearanceClassName = 'TListItemAppearance'
-            ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
-            HeaderAppearanceClassName = 'TListHeaderObjects'
-            FooterAppearanceClassName = 'TListHeaderObjects'
-            Align = Right
-            Position.X = 248.000000000000000000
-            Size.Width = 195.000000000000000000
-            Size.Height = 153.000000000000000000
+          object txtLugarPrestamo: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = MostTop
+            TabOrder = 3
+            Position.X = 15.000000000000000000
+            Position.Y = 5.000000000000000000
+            Margins.Left = 15.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 15.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 463.000000000000000000
+            Size.Height = 21.000000000000000000
             Size.PlatformDefault = False
+            TextPrompt = 'UBICACION'
+          end
+          object txtObservacionesPrestamo: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = MostTop
             TabOrder = 1
+            Position.X = 15.000000000000000000
+            Position.Y = 36.000000000000000000
+            Margins.Left = 15.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 15.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 463.000000000000000000
+            Size.Height = 21.000000000000000000
+            Size.PlatformDefault = False
+            TextPrompt = 'OBSERVACIONES'
           end
         end
         object Panel3: TPanel
           Align = Client
           Size.Width = 523.000000000000000000
-          Size.Height = 205.000000000000000000
+          Size.Height = 179.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
           object StringGrid1: TStringGrid
@@ -364,46 +275,151 @@ object frmPrestamos: TfrmPrestamos
             CanFocus = True
             ClipChildren = True
             Margins.Left = 15.000000000000000000
-            Margins.Top = 50.000000000000000000
+            Margins.Top = 15.000000000000000000
             Margins.Right = 15.000000000000000000
             Margins.Bottom = 15.000000000000000000
             Position.X = 15.000000000000000000
-            Position.Y = 50.000000000000000000
+            Position.Y = 15.000000000000000000
             Size.Width = 493.000000000000000000
-            Size.Height = 73.000000000000000000
+            Size.Height = 100.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
+            RowCount = 0
             Viewport.Width = 489.000000000000000000
-            Viewport.Height = 48.000000000000000000
+            Viewport.Height = 75.000000000000000000
           end
-          object Edit1: TEdit
-            Touch.InteractiveGestures = [LongTap, DoubleTap]
-            Align = Scale
-            TabOrder = 3
-            Position.X = 16.000000000000000000
-            Size.Width = 177.000000000000000000
+          object GridPanelLayout1: TGridPanelLayout
+            Align = Top
+            Position.Y = 130.000000000000000000
+            Size.Width = 523.000000000000000000
+            Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
-            object Label2: TLabel
-              Align = Scale
-              Size.Width = 177.000000000000000000
-              Size.PlatformDefault = False
-              Text = 'Label2'
-              TabOrder = 0
-            end
-          end
-          object Edit2: TEdit
-            Touch.InteractiveGestures = [LongTap, DoubleTap]
-            Align = Scale
             TabOrder = 2
-            Position.X = 200.000000000000000000
-            Size.Width = 145.000000000000000000
-            Size.PlatformDefault = False
-            object Label4: TLabel
-              Align = Scale
-              Size.Width = 145.000000000000000000
+            ColumnCollection = <
+              item
+                Value = 50.000184955703110000
+              end
+              item
+                Value = 49.999815044296890000
+              end>
+            ControlCollection = <
+              item
+                Column = 0
+                Control = Image1
+                Row = 0
+              end
+              item
+                Column = 1
+                Control = Image3
+                Row = 0
+              end>
+            RowCollection = <
+              item
+                Value = 100.000000000000000000
+              end
+              item
+                SizeStyle = Auto
+              end>
+            object Image1: TImage
+              MultiResBitmap.Height = 48
+              MultiResBitmap.Width = 48
+              MultiResBitmap = <
+                item
+                  Width = 48
+                  Height = 48
+                  PNG = {
+                    89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+                    87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                    03A1494441546843ED99C94F137114C77FBF616A5D90C8010948A23751132401
+                    BC19F4A20D5B17160F1EDC2298188CFE05048F5E5CD26840E3C918656BA194D4
+                    70C0783241222E899E3CB8013551E252AD6DE6E79BF6A5527F33EDB450E667E8
+                    E7F27BEF753AF3BEF37EDBCC903C79D63814DB65D1D3D3233DD9FBAC9650B69F
+                    305A0727DD0DE18AF8AF711821EFA07905C74C53457A54F3BC6AA6B7B75789FF
+                    9A3DCB12601B7656C89475837914CEB42D1E350A7B0FA2EE1039EAF637FB3F60
+                    3063B212D038DE584C23F245B8DBA7E10C560C6707236146599F0C851C758E2E
+                    62D430190B681E7174C005DDF0D7120CAD088C91054AD9D971E7E830860C6158
+                    404D5FA7A5AC64C14D28EDC4504E0021D7E73F6D3D3FD3D51FC1504A0C09681F
+                    682F0C597E0F53420F6128C7B0407863A86DF2F0E40F0CE89256806DC2662D08
+                    5B1F40F2F5185A1D1879185DFFCB1668088431A28984AD2E72D87A79D59357A1
+                    E400DCB84BE8E992B2024D1EFB1138E41EBA26C1DA520D6C5D012DDE96724591
+                    60E12145183209F6D9A248BB3CAD9E200692D015D038E2B8452939856E46F81C
+                    1EB49269F63AD1CA0C9899FAFC2EEF197493D01C03768F7D07283B86AEE9C0FA
+                    70B261C8B51DDD2434054409E982DAC0E2280AD422498AE6FAC309A89FAA9761
+                    8B70025D61807DD371588F0AD04DC009D8B4B8651FF4FD52748501722A0FC991
+                    1A7413700224460FA2291CB007E372E30440A96AD1140E0ACF1A6826E0A65198
+                    3E5F42B9F6A0AB8BDE54992D86A658465E8CBBBC55E8C5E02A005356199AC201
+                    BD83CB4DAB0B15A2291CD05D36A39980AF8046B712194E00F00D5BE180DEC1E5
+                    C6772146E7D0140EE81A5C6E5AB3D010CC42ADE866C54A6FE6FEC206616BDD81
+                    4E0CAD31F0144DE15008994133012740A16C0A4DE180858CCB8D1350375BFD18
+                    F6DF6FD11508F6C6EFF44EA3938013107BDD47D95D74C581C1A32D5527A26438
+                    012AB0F7BEC208FB89AEE9408F085918BD8A6E129A027C76DF0234B7E39EF9C0
+                    F6E666C6CFC4B6095B911CB6BE86434CDD1BC1DDFF58202995638E31CD0556B3
+                    022A8186C057682EC43DF380BB7F4E2F79155D012AB068DC877B7003DD5507C6
+                    E1B5742F7B530A50D91059D70D675AD9CDBF21D848ED6C75DA1E6068E729F2CB
+                    DDB4155019EC18FC3E1F2C6D8211D58FA19CA1BE5E9F0B96B618495EC5500596
+                    22DA070E4315588ACFE51D6096E84EB8A41BC646CA57DF86503F31C1609529AB
+                    CC3479958C2BB094FFF623DFBFE87E66A5A4387600235F20D99C7C66CD93676D
+                    43C81F79E43E8977570AA60000000049454E44AE426082}
+                  FileName = 
+                    'F:\Documents\GitHub\SIRELT\ReservasAudiovisualesUCC\Imagenes\ico' +
+                    'ns8_Plus_48px.png'
+                end>
+              Align = Client
+              Size.Width = 261.500976562500000000
+              Size.Height = 50.000000000000000000
               Size.PlatformDefault = False
-              Text = 'Label2'
-              TabOrder = 0
+              OnClick = Image1Click
+            end
+            object Image3: TImage
+              MultiResBitmap.Height = 48
+              MultiResBitmap.Width = 48
+              MultiResBitmap = <
+                item
+                  Width = 48
+                  Height = 48
+                  PNG = {
+                    89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+                    87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                    03AE494441546843ED995D48145114C7EFB9BA6EECAC9298451F64500F621081
+                    1F1558A61948AF952FBDF49605D2C76341E6630F81998110412F7D2A161411A4
+                    1B2248B94AF44110850F9586D017EAAE5F3B733AE31E17D7BBB3EEAABB3BA23F
+                    70E79CFFE878FE7BEFDC3B73AF586595150EF07151609D90FEAEC22243C8FD20
+                    A0989402BAF2163E3DC377FAF9844278A5C02E57696F1FD40B23786AE12CCA80
+                    AF62EF66038C5A2AF804153EB7E0A8204E1BBA2B65FA0DADBD7B30A8C6CF820C
+                    FC2B2DCD4ECF98BC42DFE62900E1647941A0C0712AA2792A30599FDDF9EE1FCB
+                    3113B781E18A9263D4056E0A80F52C2D113864009EC96AEF6D63212662368085
+                    858ED1B5698DF407352C25086CD202AEF3D0D91960212A3119300EEFD27CFA9A
+                    56EA2E552C2514EA56CF3539512D5FBEF7B16489E4A32546D50EA75F773E4B56
+                    F12634201CF11BCEA778BC2083254BE635E09FCABE46FDFD20A74904CA7D7FB4
+                    AB9C5812B50B8D54165703C2434E930E8D7228118F6A1EEF6396142C0D0C57ED
+                    CE95538ECFF42BD92CA50614BF0D5DCFCFEAECFBC54A18965D888ABF9CF2E24D
+                    40E4C83479913385882DE02FDF97A74BFD0B9D74B0945268D69E90426ED73CAF
+                    07580A11B10574D06BEC52BC8939DBD323CB694EC3505A00CBCAD27DE9FE1F74
+                    6A034BB6001107DD39DBB6424B8BCED2344A0B0C4B5F89DD8A3701804DFEDFFD
+                    859C86500CA4019473683B5048A536C5008228E2D08ED0BB4638CA3D307AA8E4
+                    231D7606336BB4F6371C2D0DBECA3D1C4501F183DBE3DDC5D934EA2884B89123
+                    FB01A0D4A67621016E0E6D07CD07991C86505B801E05395A16280600718443DB
+                    41139A525B8416809F1CD90F44A5367514AA286E25134739B51B2DEE8E9E6A8E
+                    A7515B4088B77CB41F887D1C85500CE888AF38B41D200CA536C540D681DED734
+                    5C7DE3D436504DFD2E4F9F97D310EA28145CEEBB17CC6C0488FB74C3D25B6638
+                    91EE01021A50E0182736004731A0377012464403999E3743E4F636A7A907C5AD
+                    B8DF89C71D7089FA5DCAE704EA090363E38E3A4E152C0DAC7BD1332C249EE334
+                    25049755446D6E77B7E5D381A50193CC76EF23BA4613A74907045E8FB6266412
+                    D5808956EA3D4B261E709A34E8DBBFA375782F706AC9BC06CC61D5E5F87B92FA
+                    E21396120F8A36CDF1C75C195186CDB9CC6BC044BEF83AE10EB88ED3D59A594A
+                    20D8A4E5E4559BFF9385A8C4FDEC6FB70D8E985A6036599E9ED6C0A4339F1AB7
+                    D15C316379C1985B4CF4D9301598CC8FB77893B85B6036CB76936F2ED6DBAC33
+                    8BC3F8973E12B2CDBACA2A2B1B21FE0338E741E43762FA160000000049454E44
+                    AE426082}
+                  FileName = 
+                    'F:\Documents\GitHub\SIRELT\ReservasAudiovisualesUCC\Imagenes\ico' +
+                    'ns8_Minus_48px.png'
+                end>
+              Align = Client
+              Size.Width = 261.499023437500000000
+              Size.Height = 50.000000000000000000
+              Size.PlatformDefault = False
+              OnClick = Image3Click
             end
           end
         end
@@ -420,6 +436,7 @@ object frmPrestamos: TfrmPrestamos
       StyleLookup = ''
       TabOrder = 0
       Text = 'PRESTAMOS ACTIVOS'
+      OnClick = TabItem2Click
       ExplicitSize.cx = 69.000000000000000000
       ExplicitSize.cy = 26.000000000000000000
       object tabPrestamosActivos: TTabControl
@@ -429,16 +446,16 @@ object frmPrestamos: TfrmPrestamos
         Margins.Right = 15.000000000000000000
         Margins.Bottom = 15.000000000000000000
         Size.Width = 523.000000000000000000
-        Size.Height = 503.000000000000000000
+        Size.Height = 550.000000000000000000
         Size.PlatformDefault = False
         TabIndex = 0
         TabOrder = 0
         TabPosition = PlatformDefault
         Sizes = (
           523s
-          477s
+          524s
           523s
-          477s)
+          524s)
         object tabPrestAct: TTabItem
           CustomIcon = <
             item
@@ -450,24 +467,21 @@ object frmPrestamos: TfrmPrestamos
           StyleLookup = ''
           TabOrder = 0
           Text = 'PRESTAMOS ACTIVOS'
+          OnClick = tabPrestActClick
           ExplicitSize.cx = 137.000000000000000000
           ExplicitSize.cy = 26.000000000000000000
-          object lbPrestamosActivos: TListBox
+          object lvPrestamos: TListView
+            ItemAppearanceClassName = 'TListItemAppearance'
+            ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+            HeaderAppearanceClassName = 'TListHeaderObjects'
+            FooterAppearanceClassName = 'TListHeaderObjects'
             Align = Client
             Size.Width = 523.000000000000000000
-            Size.Height = 477.000000000000000000
+            Size.Height = 524.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
-            DisableFocusEffect = True
-            ItemIndex = 0
-            Items.Strings = (
-              '1104706314')
-            DefaultItemStyles.ItemStyle = ''
-            DefaultItemStyles.GroupHeaderStyle = ''
-            DefaultItemStyles.GroupFooterStyle = ''
-            OnItemClick = lbPrestamosActivosItemClick
-            Viewport.Width = 519.000000000000000000
-            Viewport.Height = 473.000000000000000000
+            SearchVisible = True
+            PullToRefresh = True
           end
         end
         object tabDetPrestamo: TTabItem
@@ -488,10 +502,10 @@ object frmPrestamos: TfrmPrestamos
     end
   end
   object BindSourceDB1: TBindSourceDB
-    DataSet = dm.cdsProducto
+    DataSet = dm.cdsVistaProductos
     ScopeMappings = <>
-    Left = 328
-    Top = 184
+    Left = 384
+    Top = 168
   end
   object BindingsList1: TBindingsList
     Methods = <>
@@ -502,26 +516,82 @@ object frmPrestamos: TfrmPrestamos
       Category = 'Quick Bindings'
       DataSource = BindSourceDB1
       FieldName = 'NOMBRE_PRODUCTO'
-      Control = lbProductos
+      Control = lvProductos
       FillExpressions = <>
       FillHeaderExpressions = <>
+      FillHeaderFieldName = 'DESCRIPCION_PRODUCTO'
+      FillBreakGroups = <
+        item
+        end>
+    end
+    object LinkFillControlToField: TLinkFillControlToField
+      Category = 'Quick Bindings'
+      Track = False
+      FillDataSource = BindSourceDB1
+      FillDisplayFieldName = 'DESCRIPCION_PRODUCTO'
+      AutoFill = True
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillHeaderFieldName = 'SERIAL_INV'
       FillBreakGroups = <>
+    end
+    object LinkGridToDataSourceBindSourceDB2: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB2
+      GridControl = StringGrid1
+      Columns = <
+        item
+          MemberName = 'ID_PRESTAMO'
+          Header = 'ID'
+          Width = 30
+        end
+        item
+          MemberName = 'ID_PERSONA'
+          Header = 'DOCUMENTO'
+          Width = 90
+        end
+        item
+          MemberName = 'ID_RESERVA'
+          Header = 'ID RESERVA'
+          Width = 70
+        end
+        item
+          MemberName = 'ID_AUDIOVISUAL'
+          Header = 'ID AUDIOVISUAL'
+          Width = 100
+        end
+        item
+          MemberName = 'LUGAR_PRESTAMO'
+          Header = 'LUGAR PRESTAMO'
+          Width = 120
+        end
+        item
+          MemberName = 'OBSERVACIONES_PRESTAMO'
+          Header = 'OBSERVACIONES DEL PRESTAMO'
+          Width = 200
+        end>
+    end
+    object LinkPropertyToFieldText: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB1
+      FieldName = 'ID_INV'
+      Component = txtIdInventario
+      ComponentProperty = 'Text'
     end
     object LinkListControlToField2: TLinkListControlToField
       Category = 'Quick Bindings'
       DataSource = BindSourceDB2
       FieldName = 'ID_PERSONA'
-      Control = lbPrestamosActivos
+      Control = lvPrestamos
       FillExpressions = <>
       FillHeaderExpressions = <>
-      FillHeaderFieldName = 'LUGAR_PRESTAMO'
       FillBreakGroups = <>
     end
   end
   object BindSourceDB2: TBindSourceDB
     DataSet = dm.cdsPrestamos
     ScopeMappings = <>
-    Left = 424
-    Top = 208
+    Left = 280
+    Top = 328
   end
 end

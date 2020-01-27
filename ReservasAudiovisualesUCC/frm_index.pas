@@ -32,7 +32,7 @@ implementation
 
 {$R *.fmx}
 
-uses frm_inventario, frm_prestamos, frm_reservas;
+uses frm_inventario, frm_prestamos, frm_reservas, DataModule;
 
 procedure TfrmIndex.btnInventarioClick(Sender: TObject);
 begin
@@ -49,6 +49,7 @@ end;
 
 procedure TfrmIndex.btnPrestamosClick(Sender: TObject);
 begin
+  dm.cdsVistaProductos.Refresh;
   frmPrestamos := TfrmPrestamos.Create(Application);
   frmPrestamos.Show;
 end;

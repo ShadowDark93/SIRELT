@@ -10,6 +10,7 @@ Coordinates=10,810,59,33
 
 [GroupBox1]
 Coordinates=10,742,70,51
+Visible=True
 
 [rbInterno]
 Coordinates=883,742,59,33
@@ -30,9 +31,6 @@ Visible=True
 [txtBuscar]
 Coordinates=304,742,61,51
 
-[Image2]
-Coordinates=382,742,49,51
-
 [dm.qryMultiusos]
 Coordinates=311,542,142,123
 
@@ -43,7 +41,7 @@ Coordinates=900,530,142,159
 Coordinates=910,370,142,105
 
 [dm.cdsProducto]
-Coordinates=250,20,95,33
+Coordinates=440,240,95,33
 Visible=False
 
 [rbExterno]
@@ -55,13 +53,14 @@ Visible=False
 
 [Panel2]
 Coordinates=594,742,47,33
+Visible=True
 
 [dm.cdsExternos]
 Coordinates=200,298,94,33
 Visible=False
 
 [dm.qryExternos]
-Coordinates=99,742,127,177
+Coordinates=99,742,92,51
 
 [dm.qryReservas]
 Coordinates=718,10,94,33
@@ -80,11 +79,8 @@ Coordinates=164,10,91,33
 Visible=False
 
 []
-Coordinates=480,0,116,231
-ExplicitSubNodes=Index;ItemIndex;Selected.Index
-
-[lbProductos]
-Coordinates=30,0,116,213
+Coordinates=365,415,89,141
+ExplicitSubNodes=Items.Text
 Visible=True
 
 [tabDetPrestamo]
@@ -92,29 +88,25 @@ Coordinates=746,685,93,33
 
 [tabPrestamosActivos]
 Coordinates=836,263,119,33
+Visible=False
 
 [dm.cdsMultiusos]
 Coordinates=71,570,98,51
 
-[lbPrestamosActivos]
-Coordinates=410,830,116,177
-Visible=True
-
 [tabPrestAct]
 Coordinates=1002,1,72,33
+Visible=False
 
 [dm.]
 Coordinates=730,30,99,33
 Visible=False
 
-[Image1]
-Coordinates=12,531,49,51
-
 [Panel3]
 Coordinates=116,260,47,33
+Visible=True
 
 [dm.cdsPrestamos]
-Coordinates=600,820,103,33
+Coordinates=620,40,103,33
 Visible=False
 
 [dm.qryInventario]
@@ -125,33 +117,56 @@ Visible=False
 Coordinates=482,250,101,33
 Visible=False
 
-[Label3]
-Coordinates=679,294,46,51
-
 [dm.cdsInventario]
-Coordinates=202,531,99,123
-
-[BindSourceDB1]
-Coordinates=250,20,142,123
-
-[BindingsList1]
-Coordinates=188,185,82,33
+Coordinates=829,30,99,33
+Visible=False
 
 [StringGrid1]
-Coordinates=398,570,70,51
+Coordinates=1040,50,70,159
 
-[Edit1]
-Coordinates=0,0,40,51
+[lvProductos]
+Coordinates=70,0,170,213
+Visible=True
+ExplicitSubNodes=FooterAppearanceClassName;FooterAppearanceName;ItemAppearance.FooterAppearance;ItemAppearance.FooterHeight
 
-[Label4]
-Coordinates=339,570,46,51
+[dm.qryVistaProductos]
+Coordinates=190,531,142,159
 
-[Edit2]
-Coordinates=389,185,40,51
+[dm.cdsVistaProductos]
+Coordinates=270,0,125,33
+Visible=False
 
-[Label2]
-Coordinates=188,229,46,51
+[BindSourceDB1]
+Coordinates=400,30,142,177
+
+[BindingsList1]
+Coordinates=178,160,82,33
 
 [BindSourceDB2]
-Coordinates=700,830,159,249
+Coordinates=800,40,159,267
+
+[txtIdInventario]
+Coordinates=260,0,85,51
+
+[GridPanelLayout1]
+Coordinates=259,260,102,33
+
+[Image1]
+Coordinates=322,178,49,51
+
+[txtObservacionesPrestamo]
+Coordinates=620,500,147,51
+
+[txtLugarPrestamo]
+Coordinates=341,531,102,51
+
+[Image4]
+Coordinates=131,531,49,51
+
+[Image3]
+Coordinates=72,531,49,51
+
+[lvPrestamos]
+Coordinates=590,70,89,141
+Visible=True
 

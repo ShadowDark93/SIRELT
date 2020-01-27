@@ -11,7 +11,7 @@ uses
   System.Bindings.Outputs, FMX.Bind.Editors, Data.Bind.Components,
   Data.Bind.DBScope, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid,
   FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
-  FMX.ListView;
+  FMX.ListView, System.ImageList, FMX.ImgList, FMX.Bind.Grid, Data.Bind.Grid;
 
 type
   TfrmPrestamos = class(TForm)
@@ -25,43 +25,48 @@ type
     GroupBox1: TGroupBox;
     lblNombres: TLabel;
     Panel1: TPanel;
-    Image2: TImage;
     rbExterno: TRadioButton;
     Panel2: TPanel;
-    lbProductos: TListBox;
     tabPrestamosActivos: TTabControl;
     tabPrestAct: TTabItem;
     tabDetPrestamo: TTabItem;
-    lbPrestamosActivos: TListBox;
     Panel3: TPanel;
-    Image1: TImage;
-    Label3: TLabel;
+    StringGrid1: TStringGrid;
+    lvProductos: TListView;
     BindSourceDB1: TBindSourceDB;
     BindingsList1: TBindingsList;
     LinkListControlToField1: TLinkListControlToField;
-    StringGrid1: TStringGrid;
-    Edit1: TEdit;
-    Edit2: TEdit;
-    Label2: TLabel;
-    Label4: TLabel;
+    LinkFillControlToField: TLinkFillControlToField;
     BindSourceDB2: TBindSourceDB;
+    LinkGridToDataSourceBindSourceDB2: TLinkGridToDataSource;
+    txtIdInventario: TLabel;
+    LinkPropertyToFieldText: TLinkPropertyToField;
+    Image1: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    txtLugarPrestamo: TEdit;
+    txtObservacionesPrestamo: TEdit;
+    GridPanelLayout1: TGridPanelLayout;
+    lvPrestamos: TListView;
     LinkListControlToField2: TLinkListControlToField;
-    ListView1: TListView;
     procedure btnBuscarClick(Sender: TObject);
     procedure lbPrestamosActivosItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
-    procedure lbProductosItemClick(const Sender: TCustomListBox;
-      const Item: TListBoxItem);
+    procedure lvProductosItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
+    procedure Image3Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure TabItem2Click(Sender: TObject);
+    procedure tabPrestActClick(Sender: TObject);
   private
     { Private declarations }
   public
     procedure cargarNombres;
-    procedure cargarElementos;
   end;
 
 var
   frmPrestamos: TfrmPrestamos;
-
 
 implementation
 
@@ -92,19 +97,6 @@ begin
   end;
 end;
 
-procedure TfrmPrestamos.cargarElementos;
-begin
-  with dm do
-  begin
-    while not cdsInventario.Eof do
-    begin
-      lbDescripcion.Items.Add('Serial: ' + cdsInventario.Fields[2].asstring +
-        ' Disponibles: ' + cdsInventario.Fields[3].asstring);
-      cdsInventario.Next;
-    end;
-  end;
-end;
-
 procedure TfrmPrestamos.cargarNombres;
 begin
   // llena los datos desde la bd
@@ -114,18 +106,70 @@ begin
     'Sede: ' + u_prestamos.sede;
 end;
 
+procedure TfrmPrestamos.Image1Click(Sender: TObject);
+begin
+  dm.cdsPrestamos.ApplyUpdates(3);
+  dm.cdsPrestamos.Refresh;
+end;
+
+procedure TfrmPrestamos.Image3Click(Sender: TObject);
+begin
+  with dm.cdsPrestamos do
+  begin
+    cancel;
+    close;
+    open;
+  end;
+
+end;
+
+procedure TfrmPrestamos.Image4Click(Sender: TObject);
+begin
+  // LLENAR EL DATASET DE LA TABLA DE PRESTAMOS..CADA CAMPO CON
+  // DE LA VISTA..
+  with dm do
+  begin
+    cdsPrestamos.append;
+    cdsPrestamos.FieldByName('ID_AUDIOVISUAL').Value := txtIdInventario.text;
+    cdsPrestamos.FieldByName('ID_PERSONA').Value := txtBuscar.text;
+    cdsPrestamos.FieldByName('LUGAR_PRESTAMO').Value := txtLugarPrestamo.text;
+    cdsPrestamos.FieldByName('OBSERVACIONES_PRESTAMO').Value :=
+      txtLugarPrestamo.text;
+    cdsPrestamos.Post;
+  end;
+end;
+
 procedure TfrmPrestamos.lbPrestamosActivosItemClick(const Sender
   : TCustomListBox; const Item: TListBoxItem);
 begin
   tabPrestamosActivos.ActiveTab := tabDetPrestamo;
 end;
 
-procedure TfrmPrestamos.lbProductosItemClick(const Sender: TCustomListBox;
-  const Item: TListBoxItem);
+procedure TfrmPrestamos.lvProductosItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
 begin
-  u_prestamos.cargarInventarioPrestamo(IntToStr(lbProductos.ItemIndex + 1));
-  lbDescripcion.Items.Clear;
-  cargarElementos;
+  if txtLugarPrestamo.text = '' then
+  begin
+    ShowMessage('Debe ingresar un lugar de destino');
+  end
+  else if txtObservacionesPrestamo.text = '' then
+    ShowMessage('Debe tener una observación del prestamo');
+end;
+
+procedure TfrmPrestamos.TabItem2Click(Sender: TObject);
+begin
+  with dm.cdsPrestamos do
+  begin
+    Refresh;
+    Filtered := false;
+    Filter := 'ESTADO_PRESTAMO=1';
+    Filtered := true;
+  end;
+end;
+
+procedure TfrmPrestamos.tabPrestActClick(Sender: TObject);
+begin
+  dm.cdsPrestamos.Refresh;
 end;
 
 end.

@@ -8,8 +8,6 @@ var
   // Prestamos
   prCedula, prNombre1, prNombre2, prApellido1, prApellido2: string;
 
-
-
 procedure buscarInterno(cedula: string);
 procedure buscarExterno(cedula: string);
 procedure cargarInventarioPrestamo(idProducto: string);
@@ -58,12 +56,7 @@ end;
 
 procedure cargarInventarioPrestamo(idProducto: string);
 begin
-  with dm do
-  begin
-    cdsInventario.Filtered := false;
-    cdsInventario.Filter := 'ID_PRODUCTO=' + idProducto;
-    cdsInventario.Filtered := true;
-  end;
+
 end;
 
 end.

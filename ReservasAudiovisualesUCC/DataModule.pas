@@ -68,6 +68,15 @@ type
     cdsInventarioID_PRODUCTO: TIntegerField;
     cdsInventarioSERIAL_INV: TStringField;
     cdsInventarioCANTIDAD_INV: TStringField;
+    qryVistaProductos: TUniQuery;
+    prvVistaProductos: TDataSetProvider;
+    cdsVistaProductos: TClientDataSet;
+    cdsVistaProductosID_INV: TIntegerField;
+    cdsVistaProductosID_PRODUCTO: TIntegerField;
+    cdsVistaProductosNOMBRE_PRODUCTO: TStringField;
+    cdsVistaProductosDESCRIPCION_PRODUCTO: TStringField;
+    cdsVistaProductosSERIAL_INV: TStringField;
+    cdsVistaProductosCANTIDAD_INV: TStringField;
   private
     { Private declarations }
   public

@@ -181,7 +181,6 @@ object dm: Tdm
     Top = 160
   end
   object cdsExternos: TClientDataSet
-    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -344,6 +343,7 @@ object dm: Tdm
   object cdsPrestamos: TClientDataSet
     Active = True
     Aggregates = <>
+    Filter = 'ESTADO_PRESTAMO=1'
     Params = <>
     ProviderName = 'prvPrestamos'
     Left = 304
@@ -402,6 +402,7 @@ object dm: Tdm
   object cdsInventario: TClientDataSet
     Active = True
     Aggregates = <>
+    Filtered = True
     Params = <>
     ProviderName = 'prvInventario'
     Left = 224
@@ -419,6 +420,53 @@ object dm: Tdm
       Size = 45
     end
     object cdsInventarioCANTIDAD_INV: TStringField
+      FieldName = 'CANTIDAD_INV'
+      FixedChar = True
+      Size = 4
+    end
+  end
+  object qryVistaProductos: TUniQuery
+    Connection = conexion
+    SQL.Strings = (
+      'SELECT * FROM v_productos')
+    Active = True
+    Left = 640
+    Top = 96
+  end
+  object prvVistaProductos: TDataSetProvider
+    DataSet = qryVistaProductos
+    Left = 640
+    Top = 160
+  end
+  object cdsVistaProductos: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'prvVistaProductos'
+    Left = 640
+    Top = 224
+    object cdsVistaProductosID_INV: TIntegerField
+      FieldName = 'ID_INV'
+    end
+    object cdsVistaProductosID_PRODUCTO: TIntegerField
+      FieldName = 'ID_PRODUCTO'
+    end
+    object cdsVistaProductosNOMBRE_PRODUCTO: TStringField
+      FieldName = 'NOMBRE_PRODUCTO'
+      Required = True
+      Size = 150
+    end
+    object cdsVistaProductosDESCRIPCION_PRODUCTO: TStringField
+      FieldName = 'DESCRIPCION_PRODUCTO'
+      Required = True
+      Size = 450
+    end
+    object cdsVistaProductosSERIAL_INV: TStringField
+      FieldName = 'SERIAL_INV'
+      Required = True
+      Size = 45
+    end
+    object cdsVistaProductosCANTIDAD_INV: TStringField
       FieldName = 'CANTIDAD_INV'
       FixedChar = True
       Size = 4
